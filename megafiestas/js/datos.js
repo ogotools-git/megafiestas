@@ -1,0 +1,222 @@
+window.CATALOGO_PRODUCTOS = [
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Armarios/",
+    "Segmento": "Grandes/",
+    "nombre producto": "Armario Gde Liviano Home",
+    "código:": "10784-rx",
+    "Descripción Breve:": "3 Entrepaños regulables. Fácil de armar. Máximo almacenamiento en un espacio optimizado. 4 Entrepaños. Entrepaños Ajustables. Cada Entrepaños resiste hasta 18 Kg. Excelente Capación Interior. 3 años de garantía con RIMAX.",
+    "Color:": "Mocca",
+    "ruta imagen": "Armario-Gde-Liviano-Home-10784-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Armarios/",
+    "Segmento": "Grandes/",
+    "nombre producto": "Armario Grande Baru Con Caja Organizadora 180Mm",
+    "código:": "6252-rx",
+    "Descripción Breve:": "Manijas verticales. Mejor agarre y diseño. 4 Entrepaños regulables. Resiste hasta 25 kg por entrepaño. Fácil de mover. Fácil de armar. 3 años de garantía con RIMAX.",
+    "Color:": "Taupe",
+    "ruta imagen": "Armario-Grande-Baru-Con-Caja-Organizadora-180Mm-6252-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Armarios/",
+    "Segmento": "Medianos/",
+    "nombre producto": "Armario Mediano Liviano Home",
+    "código:": "13215-rx",
+    "Descripción Breve:": "Fácil de armar. 1 Entrepaño. El Entrepaño resiste hasta 18 Kg. Excelente Capación Interior. Diseño ligero para fácil movilidad y reubicación. Amplio espacio de almacenamiento. Fabricado con materiales duraderos y de calidad. Estilo moderno que se integra con cualquier decoración. 3 años de garantía con RIMAX.",
+    "Color:": "Almendra",
+    "ruta imagen": "Armario-Mediano-Liviano-Home-13215-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Armarios/",
+    "Segmento": "Medianos/",
+    "nombre producto": "Armario Mediano Barú",
+    "código:": "9290-rx",
+    "Descripción Breve:": "Armario Mediano con 2 entrepaños ajustables que resisten hasta 25 Kg cada uno. Fácil de armar, mover y limpiar. Con la resistencia y beneficios del plástico. Excelente capacidad interior, con orificio para uso de candado para mayor seguridad. De apariencia moderna y elegante. Ideal para interiores y exteriores. Beneficios: Manijas verticales. Mejor agarre y diseño. 2 Entrepaños regulables. Resiste hasta 25 kg por entrepaño. Fácil de mover. Fácil de armar. 3 años de garantía con RIMAX.",
+    "Color:": "Taupe",
+    "ruta imagen": "Armario-Mediano-Barú-9290-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Armarios/",
+    "Segmento": "Medianos/",
+    "nombre producto": "Armario Mediano Apariencia Rattan",
+    "código:": "10367-rx",
+    "Descripción Breve:": "Armario Mediano con textura Rattan, con 2 entrepaños ajustables que resisten hasta 25 Kg cada uno. Fácil de armar, mover y limpiar. Con la resistencia y beneficios del plástico. Excelente capacidad interior, con orificio para uso de candado para mayor seguridad. Apariencia artesanal. 3 años de garatía con RIMAX.",
+    "Color:": "Taupe",
+    "ruta imagen": "Armario-Mediano-Apariencia-Rattan-10367-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Armarios/",
+    "Segmento": "Infantiles/",
+    "nombre producto": "Armario Infantil",
+    "código:": "13990-rx",
+    "Descripción Breve:": "Armario Infantil Rimax , Ideal para organizar ropa, juguetes y accesorios, con diseño colorido, seguro, resistente y fácil de mover.\nMedidas: 65 cm ancho × 45 cm profundidad × 94 cm alto. Garantía: 3 años con Rimax.",
+    "Color:": "Tricolor",
+    "ruta imagen": "Armario-Infantil-13990-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Armarios/",
+    "Segmento": "Multiusos/",
+    "nombre producto": "Armario multiusos baru",
+    "código:": "6254-rx",
+    "Descripción Breve:": "Armario Multiusos Rimax con 3 entrepaños ajustables, cada uno con capacidad de hasta 25 kg, y división central para organizar productos y elementos del hogar. Fácil de armar, mover y limpiar, fabricado en plástico resistente para uso en interiores y exteriores. Medidas: 65 cm de ancho × 45 cm de profundidad × 189 cm de alto, con orificio para candado y manijas verticales para mayor seguridad y comodidad. Garantía de 3 años con Rimax",
+    "Color:": "gris",
+    "ruta imagen": "Armario-multiusos-baru-6254-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "Auxiliares/",
+    "nombre producto": "Mesa plegable redonda baru",
+    "código:": "12959-rx",
+    "Descripción Breve:": "Mesa auxiliar Rimax con diseño imitación madera, ideal para complementar la Silla Playera Barú y aprovechar espacios como balcones, interiores y exteriores. Superficie amplia de 60,7 × 60,7 cm, fácil de armar sin herramientas, plegar, guardar y limpiar. Fabricada en material 100% reciclable, con diseño elegante y acogedor. Garantía de 3 años con Rimax.",
+    "Color:": "mocca",
+    "ruta imagen": "mesa-plegable-redonda-baru-12959-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "Auxiliares/",
+    "nombre producto": "Mesa de centro rectangular baru",
+    "código:": "12678-rx",
+    "Descripción Breve:": "Mesa de centro exterior Rimax Barú, ideal para interiores y exteriores, con diseño elegante de imitación madera. Fácil de armar sin herramientas, plegar, guardar y limpiar, fabricada en material 100% reciclable. Medidas: 65 cm de ancho × 50 cm de profundidad × 44,5 cm de alto. Garantía de 3 años con Rimax.",
+    "Color:": "gris hielo",
+    "ruta imagen": "mesa-de-centro-rectangular-baru-12678-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "Auxiliares/",
+    "nombre producto": "Mesa de centro",
+    "código:": "7797-rx",
+    "Descripción Breve:": "Mesa de centro Rimax rectangular, ideal para sala, jardín o balcón, con sobre texturado que ayuda a evitar que los objetos se deslicen. Fabricada en plástico resistente, liviano y fácil de limpiar. Medidas: 67,6 cm de ancho × 54 cm de profundidad × 42,5 cm de alto. Garantía de 3 años con Rimax.",
+    "Color:": "wengue",
+    "ruta imagen": "mesa-de-centro-7797-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "Auxiliares/",
+    "nombre producto": "Mesa centro redonda baru",
+    "código:": "12957-rx",
+    "Descripción Breve:": "Mesa Redonda Barú Rimax, ideal para aprovechar espacios pequeños con un diseño elegante de imitación madera. Fácil de armar sin herramientas, limpiar, plegar y guardar, optimizando el espacio. Producto 100% reciclable. Medidas: 60,7 cm de ancho × 60,7 cm de profundidad × 43,5 cm de alto. Garantía de 3 años con Rimax.",
+    "Color:": "taupe",
+    "ruta imagen": "mesa-centro-redonda-baru-12957-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "Auxiliares/",
+    "nombre producto": "Mesa plegable rectangular baru",
+    "código:": "12564-rx",
+    "Descripción Breve:": "Mesa Rimax con diseño elegante de imitación madera, ideal para aprovechar espacios pequeños con calidez y funcionalidad. Fácil de armar sin herramientas, limpiar, plegar y guardar, optimizando el espacio. Producto 100% reciclable, ideal para interiores y exteriores. Medidas: 65 cm de ancho × 50 cm de profundidad × 74,7 cm de alto. Garantía de 3 años con Rimax.",
+    "Color:": "mocca",
+    "ruta imagen": "mesa-plegable-rectangular-baru-12564-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "comedor/",
+    "nombre producto": "Mesa banquetera",
+    "código:": "13962-rx",
+    "Descripción Breve:": "Mesa Banquetera Grande Rimax, ideal para eventos, reuniones y celebraciones, con amplia superficie para varios invitados. Diseño plegable que facilita el almacenamiento y transporte, perfecta para interiores y exteriores. Fabricada con materiales resistentes para soportar el uso frecuente. Medidas: 183 cm de largo × 74 cm de ancho × 74 cm de alto. Garantía de 3 años con Rimax.",
+    "Color:": "blanco",
+    "ruta imagen": "mesa-banquetera-13962-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "comedor/",
+    "nombre producto": "Mesa eterna familiar",
+    "código:": "8815-rx",
+    "Descripción Breve:": "Mesa Eterna Familiar Rimax, ideal para reuniones familiares y sociales, con diseño amplio, robusto y resistente para mayor durabilidad. Perfecta para interiores y exteriores, se adapta a comedores, patios y jardines. Medidas: 150,5 cm de ancho × 80,5 cm de profundidad × 72,5 cm de alto. Garantía de 3 años con Rimax.",
+    "Color:": "wengue",
+    "ruta imagen": "mesa-eterna-familiar-8815-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "comedor/",
+    "nombre producto": "Mesa caribe",
+    "código:": "10807-rx",
+    "Descripción Breve:": "Mesa Caribe Rimax, ideal para interiores y exteriores, reuniones familiares, comidas y espacios como patios, jardines y terrazas. Fabricada en plástico resistente a impactos, con superficie lisa, fácil de limpiar y diseño moderno y versátil. Montaje sencillo sin herramientas complicadas y tamaño práctico para diferentes espacios. Garantía de 3 años con Rimax.",
+    "Color:": "mocca",
+    "ruta imagen": "mesa-caribe-10807-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "comedor/",
+    "nombre producto": "Mesa baru",
+    "código:": "11701-rx",
+    "Descripción Breve:": "Mesa Barú Rimax cuadrada, con elegante textura de imitación madera y acabado gris hielo, ideal para casa, finca u oficina. Fabricada en resina resistente al agua, fácil de limpiar y armar sin herramientas, con tacón nivelador y tapón central para parasol. Medidas: 75,3 cm de ancho × 75,3 cm de profundidad × 73,5 cm de alto. Garantía de 3 años con Rimax.",
+    "Color:": "gris hielo",
+    "ruta imagen": "mesa-baru-11701-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "comedor/",
+    "nombre producto": "Mesa baru familiar",
+    "código:": "12674-rx",
+    "Descripción Breve:": "Mesa Familiar Barú Rimax rectangular, con textura de imitación madera que aporta calidez y elegancia a cualquier espacio. Fácil de limpiar y armar sin herramientas, con tacones niveladores y antideslizantes en las cuatro patas y tapón central para parasol. Medidas: 153 cm de ancho × 75 cm de profundidad × 73,5 cm de alto, fabricada en material 100% reciclable. Garantía de 3 años con Rimax.",
+    "Color:": "gris hielo",
+    "ruta imagen": "mesa-baru-familiar-12674-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "comedor/",
+    "nombre producto": "Mesa eterna",
+    "código:": "7804-rx",
+    "Descripción Breve:": "Mesa Cuadrada Rimax de 80,5 × 80,5 cm, ideal como comedor para 4 personas, con patas cuadradas y diseño elegante tipo Rattan. Fabricada en plástico resistente, fácil de limpiar y adecuada para interiores y exteriores. Medidas: 80,5 cm de ancho × 80,5 cm de profundidad × 72,5 cm de alto. Garantía de 3 años con Rimax.",
+    "Color:": "wengue",
+    "ruta imagen": "mesa-eterna-7804-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "comedor/",
+    "nombre producto": "Mesa provenzal",
+    "código:": "8171-rx",
+    "Descripción Breve:": "Mesa Familiar Rimax rectangular, ideal para 6 personas, con diseño resistente y patas robustas que brindan estabilidad. Cuenta con filtro UV para uso en interiores y exteriores, es fácil de armar y limpiar, e incluye tapón central para parasol y tacones antideslizantes. Medidas: 139 cm de ancho × 86,1 cm de profundidad × 73,4 cm de alto. Garantía de 3 años con Rimax.",
+    "Color:": "wengue",
+    "ruta imagen": "mesa-provenzal-8171-rx.webp"
+  },
+  {
+    "home": "megafiestasyumbo.com/",
+    "categorias": "rimax/",
+    "subcategoria": "Mesas/",
+    "Segmento": "comedor/",
+    "nombre producto": "Mesa lotus",
+    "código:": "8195-rx",
+    "Descripción Breve:": "Mesa Familiar Rimax rectangular, ideal para 6 personas, resistente y estable, perfecta como comedor principal o auxiliar. Cuenta con filtro UV para interiores y exteriores, tacones antideslizantes y tapón central para parasol. Fácil de armar y limpiar, con diseño clásico que se adapta a diferentes espacios. Medidas: 139,8 cm de ancho × 80 cm de profundidad × 71,4 cm de alto. Garantía de 3 años con Rimax.",
+    "Color:": "wengue",
+    "ruta imagen": "mesa-lotus-8195-rx.webp"
+  }
+];

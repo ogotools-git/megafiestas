@@ -1,0 +1,1218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b4da2" />
+  <title>Catálogo Rimax | Mega Fiestas</title>
+
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --rimax-blue: #0b4da2;
+      --rimax-blue-dark: #073876;
+      --rimax-yellow: #ffd900;
+      --ui-bg: rgba(255, 255, 255, 0.95);
+      --text: #172033;
+      --shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+    }
+
+    * {
+      box-sizing: border-box;
+      font-family: "Lato", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 50% 15%, #ffffff 0, #f4f6f9 42%, #e9edf3 100%);
+      overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button, input, a {
+      font: inherit;
+    }
+
+    button {
+      user-select: none;
+    }
+
+    .app {
+      min-height: 100dvh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .topbar {
+      min-height: 56px;
+      padding: 9px max(14px, env(safe-area-inset-left));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.86);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.07);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 50;
+    }
+
+    .title-wrap {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-mark {
+      width: 10px;
+      height: 34px;
+      border-radius: 999px;
+      background: linear-gradient(var(--rimax-yellow) 0 33%, var(--rimax-blue) 33% 100%);
+      flex: 0 0 auto;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(16px, 2.6vw, 22px);
+      line-height: 1.1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .top-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 0 0 auto;
+    }
+
+    .action-link,
+    .icon-btn,
+    .nav-btn,
+    .zoom-control {
+      border: 0;
+      color: #fff;
+      background: var(--rimax-blue);
+      box-shadow: 0 5px 14px rgba(11, 77, 162, 0.22);
+      cursor: pointer;
+      transition: transform .15s ease, background .15s ease, opacity .15s ease;
+    }
+
+    .action-link:hover,
+    .icon-btn:hover,
+    .nav-btn:hover,
+    .zoom-control:hover {
+      background: var(--rimax-blue-dark);
+    }
+
+    .action-link:active,
+    .icon-btn:active,
+    .nav-btn:active,
+    .zoom-control:active {
+      transform: scale(.96);
+    }
+
+    .action-link {
+      min-height: 40px;
+      padding: 0 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      font-weight: 700;
+    }
+
+    .action-link.whatsapp {
+      background: #25D366;
+      box-shadow: 0 5px 14px rgba(37, 211, 102, 0.24);
+    }
+
+    .action-link.whatsapp:hover {
+      background: #1da851;
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      font-size: 20px;
+    }
+
+    .book-stage {
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 10px 4px;
+      position: relative;
+    }
+
+    #flipbook {
+      width: min(96vw, 1500px);
+      height: min(calc(100dvh - 142px), 82vw);
+      max-height: 84dvh;
+      margin: auto;
+      filter: drop-shadow(0 12px 25px rgba(0, 0, 0, .16));
+    }
+
+    .page {
+      background: #fff;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .page canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      background: #fff;
+    }
+
+    .page-loader {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      background: #fff;
+      color: #617089;
+      font-size: 13px;
+    }
+
+    .page.is-rendered .page-loader {
+      display: none;
+    }
+
+    .bottom-controls {
+      min-height: 72px;
+      padding: 8px 12px max(10px, env(safe-area-inset-bottom));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      z-index: 50;
+    }
+
+    .control-panel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 7px 10px;
+      border-radius: 18px;
+      background: var(--ui-bg);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(0,0,0,.07);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+    }
+
+    .nav-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-size: 21px;
+    }
+
+    .page-jump {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .page-jump input {
+      width: 68px;
+      height: 38px;
+      padding: 0 8px;
+      border: 1px solid #c8d0dc;
+      border-radius: 10px;
+      background: #fff;
+      color: var(--text);
+      text-align: center;
+      outline: none;
+      font-weight: 700;
+    }
+
+    .page-jump input:focus {
+      border-color: var(--rimax-blue);
+      box-shadow: 0 0 0 3px rgba(11, 77, 162, .12);
+    }
+
+    .page-status {
+      min-width: 62px;
+      text-align: center;
+      font-size: 13px;
+      color: #5d6878;
+      font-weight: 700;
+    }
+
+    .loading-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 5000;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background: #fff;
+      transition: opacity .25s ease, visibility .25s ease;
+    }
+
+    .loading-screen.hidden {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .loading-card {
+      width: min(360px, 92vw);
+      padding: 24px;
+      border-radius: 22px;
+      box-shadow: var(--shadow);
+      text-align: center;
+    }
+
+    .spinner {
+      width: 46px;
+      height: 46px;
+      margin: 0 auto 14px;
+      border: 5px solid #e6ebf2;
+      border-top-color: var(--rimax-blue);
+      border-radius: 50%;
+      animation: spin .85s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .loading-card strong {
+      display: block;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .loading-card small {
+      color: #69768a;
+      line-height: 1.4;
+    }
+
+    .error-box {
+      display: none;
+      max-width: 720px;
+      margin: 20px;
+      padding: 18px;
+      border-radius: 16px;
+      background: #fff3f3;
+      border: 1px solid #ffc7c7;
+      color: #8a1f1f;
+      line-height: 1.5;
+      box-shadow: var(--shadow);
+    }
+
+    /* Zoom */
+    .zoom-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 4000;
+      display: none;
+      background: rgba(7, 12, 22, .94);
+      touch-action: none;
+      overflow: hidden;
+    }
+
+    .zoom-overlay.open {
+      display: block;
+    }
+
+    .zoom-toolbar {
+      position: absolute;
+      top: max(12px, env(safe-area-inset-top));
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.94);
+      box-shadow: var(--shadow);
+    }
+
+    .zoom-control {
+      min-width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      padding: 0 11px;
+      font-size: 18px;
+      font-weight: 900;
+    }
+
+    .zoom-page-label {
+      min-width: 88px;
+      text-align: center;
+      font-weight: 800;
+      font-size: 13px;
+      color: #243147;
+    }
+
+    #zoom-canvas {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform-origin: center center;
+      box-shadow: 0 16px 50px rgba(0,0,0,.42);
+      background: #fff;
+      cursor: grab;
+      will-change: transform;
+    }
+
+    #zoom-canvas.dragging {
+      cursor: grabbing;
+    }
+
+    .zoom-help {
+      position: absolute;
+      bottom: max(16px, env(safe-area-inset-bottom));
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(0,0,0,.48);
+      color: #fff;
+      font-size: 12px;
+      pointer-events: none;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+
+
+    .zoom-control:disabled {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .zoom-toolbar-simple {
+      left: auto;
+      right: max(12px, env(safe-area-inset-right));
+      transform: none;
+      width: auto;
+      padding: 6px;
+      border-radius: 14px;
+    }
+
+    .zoom-toolbar-simple .zoom-control {
+      min-width: 44px;
+      width: 44px;
+      padding: 0;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    @media (max-width: 720px) {
+      .topbar {
+        min-height: 52px;
+      }
+
+      .action-link span {
+        display: none;
+      }
+
+      .action-link {
+        width: 42px;
+        height: 42px;
+        min-height: 42px;
+        padding: 0;
+        border-radius: 50%;
+      }
+
+      #flipbook {
+        width: 98vw;
+        height: calc(100dvh - 142px);
+        max-height: none;
+      }
+
+      .bottom-controls {
+        min-height: 80px;
+        padding-inline: 7px;
+      }
+
+      .control-panel {
+        width: min(100%, 420px);
+        justify-content: space-between;
+        gap: 7px;
+        padding: 7px;
+      }
+
+      .nav-btn {
+        width: 43px;
+        height: 43px;
+      }
+
+      .page-jump {
+        gap: 5px;
+      }
+
+      .page-jump .jump-label {
+        display: none;
+      }
+
+      .page-status {
+        min-width: 50px;
+      }
+
+      .zoom-toolbar {
+        justify-content: center;
+      }
+
+      .zoom-toolbar-simple {
+        width: auto;
+        left: auto;
+        right: max(10px, env(safe-area-inset-right));
+        transform: none;
+      }
+
+      .zoom-help {
+        max-width: calc(100vw - 28px);
+        white-space: normal;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .page-status {
+        display: none;
+      }
+
+      .page-jump input {
+        width: 58px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="title-wrap">
+        <div class="brand-mark" aria-hidden="true"></div>
+        <h1>Catálogo Rimax</h1>
+      </div>
+
+      <div class="top-actions">
+        <button class="icon-btn" id="zoomBtn" type="button" title="Ampliar página" aria-label="Ampliar página">🔍</button>
+        <a
+          class="action-link"
+          id="backToMega"
+          href="../"
+          title="Regresar a Mega Fiestas"
+        >
+          🏠 <span>Regresar</span>
+        </a>
+        <a
+          class="action-link whatsapp"
+          id="whatsappLink"
+          href="https://wa.me/573107090719?text=Hola%2C%20vi%20el%20cat%C3%A1logo%20Rimax%20en%20mega%20fun%20y%20quiero%20informaci%C3%B3n%20sobre%20un%20producto."
+          target="_blank"
+          rel="noopener"
+          title="Hablar por WhatsApp"
+        >
+          💬 <span>WhatsApp</span>
+        </a>
+      </div>
+    </header>
+
+    <main class="book-stage">
+      <div id="flipbook" aria-label="Catálogo Rimax en formato libro"></div>
+      <div class="error-box" id="errorBox"></div>
+    </main>
+
+    <footer class="bottom-controls" id="mainControls">
+      <div class="control-panel">
+        <button class="nav-btn" id="prevBtn" type="button" aria-label="Página anterior">◀</button>
+
+        <div class="page-jump">
+          <span class="jump-label">Ir a página:</span>
+          <input id="pageNumber" type="number" min="1" value="1" inputmode="numeric" aria-label="Número de página">
+        </div>
+
+        <div class="page-status" id="pageStatus">1 / …</div>
+
+        <button class="nav-btn" id="nextBtn" type="button" aria-label="Página siguiente">▶</button>
+      </div>
+    </footer>
+  </div>
+
+  <div class="loading-screen" id="loadingScreen" aria-live="polite">
+    <div class="loading-card">
+      <div class="spinner" aria-hidden="true"></div>
+      <strong>Cargando catálogo Rimax</strong>
+      <small id="loadingText">Preparando el libro…</small>
+    </div>
+  </div>
+
+  <div class="zoom-overlay" id="zoomOverlay" aria-hidden="true">
+    <div class="zoom-toolbar zoom-toolbar-simple">
+      <button class="zoom-control" id="zoomOut" type="button" title="Volver a 1.5x" aria-label="Volver a zoom 1.5x">−</button>
+      <button class="zoom-control" id="zoomIn" type="button" title="Ampliar a 2x" aria-label="Ampliar a zoom 2x">+</button>
+      <button class="zoom-control" id="closeZoom" type="button" title="Cerrar zoom" aria-label="Cerrar zoom">×</button>
+    </div>
+
+    <canvas id="zoom-canvas"></canvas>
+    <div class="zoom-help">Arrastra para explorar · − 1.5x · + 2.0x</div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/page-flip@2.0.7/dist/js/page-flip.browser.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+
+  <script>
+    (() => {
+      "use strict";
+
+      /*
+       * El HTML usa directamente este PDF.
+       * Mientras el archivo siga en esta URL, no necesitas carpetas jpg/ ni jpg_alta/.
+       */
+      const PDF_URL = "../catalogo-rimax.pdf";
+
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js";
+
+      const flipbookEl = document.getElementById("flipbook");
+      const loadingScreen = document.getElementById("loadingScreen");
+      const loadingText = document.getElementById("loadingText");
+      const errorBox = document.getElementById("errorBox");
+
+      const prevBtn = document.getElementById("prevBtn");
+      const nextBtn = document.getElementById("nextBtn");
+      const pageNumberInput = document.getElementById("pageNumber");
+      const pageStatus = document.getElementById("pageStatus");
+
+      const zoomBtn = document.getElementById("zoomBtn");
+      const zoomOverlay = document.getElementById("zoomOverlay");
+      const zoomCanvas = document.getElementById("zoom-canvas");
+      const zoomOut = document.getElementById("zoomOut");
+      const zoomIn = document.getElementById("zoomIn");
+      const closeZoom = document.getElementById("closeZoom");
+
+      let pdfDoc = null;
+      let pageFlip = null;
+      let currentPageIndex = 0; // PageFlip usa índice desde 0.
+      let renderGeneration = 0;
+
+      const renderedPages = new Set();
+      const renderingPages = new Map();
+      const MAX_RENDER_DISTANCE = 7;
+
+      // Sonido sutil de paso de página, generado con Web Audio.
+      // No descarga ningún MP3 y en móviles solo se activa tras una interacción real.
+      let pageSoundCtx = null;
+
+      function unlockPageSound() {
+        try {
+          if (!pageSoundCtx) {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (!AudioContext) return;
+            pageSoundCtx = new AudioContext();
+          }
+
+          if (pageSoundCtx.state === "suspended") {
+            pageSoundCtx.resume();
+          }
+        } catch (error) {
+          console.debug("Audio no disponible en este navegador", error);
+        }
+      }
+
+      function playPageTurnSound() {
+        if (!pageSoundCtx || pageSoundCtx.state !== "running") return;
+
+        try {
+          const ctx = pageSoundCtx;
+          const duration = 0.16;
+          const bufferSize = Math.max(1, Math.floor(ctx.sampleRate * duration));
+          const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+          const data = buffer.getChannelData(0);
+
+          // Ruido muy leve con caída rápida: parecido al roce de una hoja, no a un efecto arcade.
+          for (let i = 0; i < bufferSize; i++) {
+            const t = i / bufferSize;
+            const envelope = Math.pow(1 - t, 2.3);
+            data[i] = (Math.random() * 2 - 1) * envelope;
+          }
+
+          const source = ctx.createBufferSource();
+          const filter = ctx.createBiquadFilter();
+          const gain = ctx.createGain();
+
+          source.buffer = buffer;
+          filter.type = "bandpass";
+          filter.frequency.setValueAtTime(1250, ctx.currentTime);
+          filter.Q.setValueAtTime(0.7, ctx.currentTime);
+
+          gain.gain.setValueAtTime(0.0001, ctx.currentTime);
+          gain.gain.exponentialRampToValueAtTime(0.055, ctx.currentTime + 0.018);
+          gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + duration);
+
+          source.connect(filter);
+          filter.connect(gain);
+          gain.connect(ctx.destination);
+          source.start();
+          source.stop(ctx.currentTime + duration);
+        } catch (error) {
+          console.debug("No se pudo reproducir el sonido de página", error);
+        }
+      }
+
+      // Safari/iOS y Chrome móvil exigen desbloquear audio mediante gesto del usuario.
+      document.addEventListener("pointerdown", unlockPageSound, { capture: true });
+      document.addEventListener("keydown", unlockPageSound, { capture: true });
+
+      // Zoom
+      let zoomPageNumber = 1;
+      const FIXED_ZOOM_SCALE = 1.5;
+      const MAX_ZOOM_SCALE = 2.0;
+      let zoomScale = FIXED_ZOOM_SCALE;
+      let zoomX = 0;
+      let zoomY = 0;
+      let dragging = false;
+      let dragStartX = 0;
+      let dragStartY = 0;
+      let originX = 0;
+      let originY = 0;
+      let zoomRenderTask = null;
+      let zoomRenderToken = 0;
+
+      function setLoading(message) {
+        loadingText.textContent = message;
+      }
+
+      function hideLoading() {
+        loadingScreen.classList.add("hidden");
+      }
+
+      function showError(error) {
+        console.error(error);
+        hideLoading();
+        flipbookEl.style.display = "none";
+        errorBox.style.display = "block";
+        errorBox.innerHTML =
+          "<strong>No se pudo cargar el catálogo.</strong><br>" +
+          "Verifica que <code>catalogo-rimax.pdf</code> siga disponible en " +
+          "<code>mega.funnding.com</code> y que el hosting permita cargarlo desde esta página.";
+      }
+
+      function createPageElement(pageNumber) {
+        const page = document.createElement("div");
+        page.className = "page";
+        page.dataset.pageNumber = String(pageNumber);
+
+        if (pageNumber === 1 || (pdfDoc && pageNumber === pdfDoc.numPages)) {
+          page.dataset.density = "hard";
+        }
+
+        const canvas = document.createElement("canvas");
+        canvas.setAttribute("aria-label", `Página ${pageNumber}`);
+
+        const loader = document.createElement("div");
+        loader.className = "page-loader";
+        loader.textContent = `Página ${pageNumber}`;
+
+        page.appendChild(canvas);
+        page.appendChild(loader);
+        return page;
+      }
+
+      async function renderPage(pageNumber) {
+        if (!pdfDoc || pageNumber < 1 || pageNumber > pdfDoc.numPages) return;
+        if (renderedPages.has(pageNumber)) return;
+        if (renderingPages.has(pageNumber)) return renderingPages.get(pageNumber);
+
+        const generationAtStart = renderGeneration;
+
+        const promise = (async () => {
+          const page = await pdfDoc.getPage(pageNumber);
+          const pageEl = flipbookEl.querySelector(`.page[data-page-number="${pageNumber}"]`);
+          if (!pageEl) return;
+
+          const canvas = pageEl.querySelector("canvas");
+          const context = canvas.getContext("2d", { alpha: false });
+
+          const baseViewport = page.getViewport({ scale: 1 });
+          const targetWidth = window.innerWidth <= 720 ? 1050 : 1350;
+          const scale = targetWidth / baseViewport.width;
+          const viewport = page.getViewport({ scale });
+
+          canvas.width = Math.ceil(viewport.width);
+          canvas.height = Math.ceil(viewport.height);
+
+          await page.render({
+            canvasContext: context,
+            viewport,
+            background: "rgb(255,255,255)"
+          }).promise;
+
+          // Si se hizo una limpieza mientras renderizaba y quedó demasiado lejos,
+          // lo descargamos inmediatamente para no malgastar memoria.
+          const centerPage = currentPageIndex + 1;
+          if (
+            generationAtStart !== renderGeneration &&
+            Math.abs(pageNumber - centerPage) > MAX_RENDER_DISTANCE
+          ) {
+            canvas.width = 1;
+            canvas.height = 1;
+            pageEl.classList.remove("is-rendered");
+            return;
+          }
+
+          pageEl.classList.add("is-rendered");
+          renderedPages.add(pageNumber);
+        })()
+          .catch(err => console.warn(`No se pudo renderizar la página ${pageNumber}`, err))
+          .finally(() => renderingPages.delete(pageNumber));
+
+        renderingPages.set(pageNumber, promise);
+        return promise;
+      }
+
+      function pruneDistantPages(centerPage) {
+        renderGeneration++;
+
+        for (const pageNumber of [...renderedPages]) {
+          if (Math.abs(pageNumber - centerPage) <= MAX_RENDER_DISTANCE) continue;
+
+          const pageEl = flipbookEl.querySelector(`.page[data-page-number="${pageNumber}"]`);
+          if (!pageEl) continue;
+
+          const canvas = pageEl.querySelector("canvas");
+          canvas.width = 1;
+          canvas.height = 1;
+          pageEl.classList.remove("is-rendered");
+          renderedPages.delete(pageNumber);
+        }
+      }
+
+      function renderAround(pageNumber) {
+        if (!pdfDoc) return;
+
+        const wanted = new Set([
+          pageNumber - 3,
+          pageNumber - 2,
+          pageNumber - 1,
+          pageNumber,
+          pageNumber + 1,
+          pageNumber + 2,
+          pageNumber + 3,
+          pageNumber + 4
+        ]);
+
+        for (const p of wanted) {
+          if (p >= 1 && p <= pdfDoc.numPages) renderPage(p);
+        }
+
+        pruneDistantPages(pageNumber);
+      }
+
+      function updatePageUI(index) {
+        if (!pdfDoc) return;
+
+        currentPageIndex = Math.max(0, Math.min(index, pdfDoc.numPages - 1));
+        const humanPage = currentPageIndex + 1;
+
+        pageNumberInput.value = humanPage;
+        pageStatus.textContent = `${humanPage} / ${pdfDoc.numPages}`;
+
+        prevBtn.disabled = currentPageIndex <= 0;
+        nextBtn.disabled = currentPageIndex >= pdfDoc.numPages - 1;
+        prevBtn.style.opacity = prevBtn.disabled ? ".45" : "1";
+        nextBtn.style.opacity = nextBtn.disabled ? ".45" : "1";
+
+        renderAround(humanPage);
+      }
+
+      async function initBook() {
+        try {
+          setLoading("Descargando el PDF…");
+
+          const loadingTask = pdfjsLib.getDocument({
+            url: PDF_URL,
+            cMapUrl: "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/cmaps/",
+            cMapPacked: true
+          });
+
+          loadingTask.onProgress = ({ loaded, total }) => {
+            if (total) {
+              const pct = Math.round((loaded / total) * 100);
+              setLoading(`Descargando el PDF… ${pct}%`);
+            }
+          };
+
+          pdfDoc = await loadingTask.promise;
+
+          pageNumberInput.max = pdfDoc.numPages;
+          pageStatus.textContent = `1 / ${pdfDoc.numPages}`;
+
+          setLoading(`Preparando ${pdfDoc.numPages} páginas…`);
+
+          const pageElements = [];
+          const fragment = document.createDocumentFragment();
+
+          for (let i = 1; i <= pdfDoc.numPages; i++) {
+            const pageEl = createPageElement(i);
+            fragment.appendChild(pageEl);
+            pageElements.push(pageEl);
+          }
+
+          flipbookEl.appendChild(fragment);
+
+          pageFlip = new St.PageFlip(flipbookEl, {
+            width: 1270,
+            height: 1654,
+            size: "stretch",
+            minWidth: 280,
+            maxWidth: 1270,
+            minHeight: 365,
+            maxHeight: 1654,
+            maxShadowOpacity: 0.42,
+            showCover: true,
+            mobileScrollSupport: false,
+            usePortrait: true,
+            autoSize: true,
+            drawShadow: true,
+            flippingTime: 650,
+            clickEventForward: true
+          });
+
+          pageFlip.loadFromHTML(pageElements);
+
+          pageFlip.on("flip", e => {
+            updatePageUI(e.data);
+            playPageTurnSound();
+          });
+          pageFlip.on("changeOrientation", () => renderAround(currentPageIndex + 1));
+
+          // Render inicial y unas páginas cercanas.
+          await Promise.all([renderPage(1), renderPage(2), renderPage(3)]);
+          updatePageUI(0);
+
+          hideLoading();
+        } catch (error) {
+          showError(error);
+        }
+      }
+
+      prevBtn.addEventListener("click", () => pageFlip && pageFlip.flipPrev());
+      nextBtn.addEventListener("click", () => pageFlip && pageFlip.flipNext());
+
+      function jumpToInputPage() {
+        if (!pageFlip || !pdfDoc) return;
+
+        const requested = Number.parseInt(pageNumberInput.value, 10);
+        if (!Number.isFinite(requested)) return;
+
+        const page = Math.max(1, Math.min(requested, pdfDoc.numPages));
+        pageNumberInput.value = page;
+        renderAround(page);
+        pageFlip.flip(page - 1);
+      }
+
+      pageNumberInput.addEventListener("change", jumpToInputPage);
+      pageNumberInput.addEventListener("keydown", e => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          pageNumberInput.blur();
+          jumpToInputPage();
+        }
+      });
+
+      document.addEventListener("keydown", e => {
+        if (!pageFlip || zoomOverlay.classList.contains("open")) return;
+
+        if (e.key === "ArrowLeft") pageFlip.flipPrev();
+        if (e.key === "ArrowRight") pageFlip.flipNext();
+      });
+
+      // ---- ZOOM FIJO 1.5x / 2.0x ----
+      // Resolución interna alta + tamaño CSS ajustado al viewport.
+      // En portrait muestra una hoja; en landscape muestra el pliego visible.
+      // Solo dos niveles: 1.5x (base) y 2.0x (máximo).
+      // Sin rueda, sin valores intermedios y sin navegación de páginas dentro del visor.
+
+      function updateZoomButtons() {
+        const atBase = zoomScale === FIXED_ZOOM_SCALE;
+        const atMax = zoomScale === MAX_ZOOM_SCALE;
+
+        zoomOut.disabled = atBase;
+        zoomIn.disabled = atMax;
+
+        zoomOut.style.opacity = atBase ? ".45" : "1";
+        zoomIn.style.opacity = atMax ? ".45" : "1";
+      }
+
+      function applyZoomTransform() {
+        zoomCanvas.style.transform =
+          `translate(calc(-50% + ${zoomX}px), calc(-50% + ${zoomY}px)) scale(${zoomScale})`;
+        updateZoomButtons();
+      }
+
+      function resetZoomPosition() {
+        zoomScale = FIXED_ZOOM_SCALE;
+        zoomX = 0;
+        zoomY = 0;
+        applyZoomTransform();
+      }
+
+      function getZoomVisiblePages(pageNumber) {
+        const safePage = Math.max(1, Math.min(pageNumber, pdfDoc.numPages));
+        const orientation =
+          pageFlip && typeof pageFlip.getOrientation === "function"
+            ? pageFlip.getOrientation()
+            : "portrait";
+
+        // En móvil/retrato se amplía únicamente la hoja actual.
+        if (orientation === "portrait" || safePage === 1) {
+          return [safePage];
+        }
+
+        // En escritorio/paisaje se reproduce el pliego visible:
+        // portada sola; después 2-3, 4-5, 6-7...
+        const leftPage = safePage % 2 === 0 ? safePage : safePage - 1;
+        const pages = [Math.max(1, leftPage)];
+
+        if (leftPage + 1 <= pdfDoc.numPages) {
+          pages.push(leftPage + 1);
+        }
+
+        return pages;
+      }
+
+      function fitZoomCanvasToViewport() {
+        // El canvas conserva muchos píxeles internos para nitidez, pero su tamaño
+        // visual se ajusta primero como "página/pliego completo". Solo DESPUÉS
+        // se aplica FIXED_ZOOM_SCALE = 1.5, de modo que el nivel base sea un 50% real.
+        const horizontalMargin = window.innerWidth <= 720 ? 24 : 80;
+        const verticalMargin = window.innerWidth <= 720 ? 120 : 110;
+
+        const availableWidth = Math.max(1, window.innerWidth - horizontalMargin);
+        const availableHeight = Math.max(1, window.innerHeight - verticalMargin);
+
+        const fitScale = Math.min(
+          availableWidth / zoomCanvas.width,
+          availableHeight / zoomCanvas.height
+        );
+
+        zoomCanvas.style.width = `${Math.max(1, Math.round(zoomCanvas.width * fitScale))}px`;
+        zoomCanvas.style.height = `${Math.max(1, Math.round(zoomCanvas.height * fitScale))}px`;
+      }
+
+      async function renderZoomPage(pageNumber) {
+        if (!pdfDoc) return;
+
+        zoomPageNumber = Math.max(1, Math.min(pageNumber, pdfDoc.numPages));
+        const myToken = ++zoomRenderToken;
+
+        if (zoomRenderTask) {
+          try { zoomRenderTask.cancel(); } catch (_) {}
+          zoomRenderTask = null;
+        }
+
+        const visiblePages = getZoomVisiblePages(zoomPageNumber);
+        const pageData = [];
+
+        // Conservamos alta resolución INTERNA para que el texto siga nítido.
+        const desiredPageWidth = Math.min(
+          2200,
+          Math.max(1400, window.innerWidth * 1.6)
+        );
+
+        for (const number of visiblePages) {
+          const page = await pdfDoc.getPage(number);
+          if (myToken !== zoomRenderToken) return;
+
+          const baseViewport = page.getViewport({ scale: 1 });
+          const renderScale = desiredPageWidth / baseViewport.width;
+          const viewport = page.getViewport({ scale: renderScale });
+
+          pageData.push({ page, viewport });
+        }
+
+        if (myToken !== zoomRenderToken) return;
+
+        const totalWidth = Math.ceil(
+          pageData.reduce((sum, item) => sum + item.viewport.width, 0)
+        );
+        const maxHeight = Math.ceil(
+          Math.max(...pageData.map(item => item.viewport.height))
+        );
+
+        zoomCanvas.width = Math.max(1, totalWidth);
+        zoomCanvas.height = Math.max(1, maxHeight);
+
+        const context = zoomCanvas.getContext("2d", { alpha: false });
+        context.save();
+        context.fillStyle = "#ffffff";
+        context.fillRect(0, 0, zoomCanvas.width, zoomCanvas.height);
+        context.restore();
+
+        let offsetX = 0;
+
+        for (const item of pageData) {
+          if (myToken !== zoomRenderToken) return;
+
+          const tempCanvas = document.createElement("canvas");
+          tempCanvas.width = Math.ceil(item.viewport.width);
+          tempCanvas.height = Math.ceil(item.viewport.height);
+
+          const tempContext = tempCanvas.getContext("2d", { alpha: false });
+
+          zoomRenderTask = item.page.render({
+            canvasContext: tempContext,
+            viewport: item.viewport,
+            background: "rgb(255,255,255)"
+          });
+
+          try {
+            await zoomRenderTask.promise;
+          } catch (err) {
+            if (err && err.name === "RenderingCancelledException") return;
+            console.warn(err);
+            return;
+          } finally {
+            zoomRenderTask = null;
+          }
+
+          if (myToken !== zoomRenderToken) {
+            tempCanvas.width = 1;
+            tempCanvas.height = 1;
+            return;
+          }
+
+          const offsetY = Math.round((zoomCanvas.height - tempCanvas.height) / 2);
+          context.drawImage(tempCanvas, Math.round(offsetX), offsetY);
+
+          offsetX += item.viewport.width;
+
+          // Liberar cuanto antes el canvas temporal.
+          tempCanvas.width = 1;
+          tempCanvas.height = 1;
+        }
+
+        if (myToken !== zoomRenderToken) return;
+
+        fitZoomCanvasToViewport();
+        resetZoomPosition();
+      }
+
+      function openZoom() {
+        if (!pdfDoc) return;
+        zoomOverlay.classList.add("open");
+        zoomOverlay.setAttribute("aria-hidden", "false");
+        document.body.style.overflow = "hidden";
+        renderZoomPage(currentPageIndex + 1);
+      }
+
+      function closeZoomViewer() {
+        zoomRenderToken++;
+
+        if (zoomRenderTask) {
+          try { zoomRenderTask.cancel(); } catch (_) {}
+          zoomRenderTask = null;
+        }
+
+        zoomOverlay.classList.remove("open");
+        zoomOverlay.setAttribute("aria-hidden", "true");
+        document.body.style.overflow = "hidden";
+        dragging = false;
+      }
+
+      zoomBtn.addEventListener("click", openZoom);
+
+      zoomIn.addEventListener("click", () => {
+        zoomScale = MAX_ZOOM_SCALE;
+        applyZoomTransform();
+      });
+
+      zoomOut.addEventListener("click", () => {
+        zoomScale = FIXED_ZOOM_SCALE;
+        zoomX = 0;
+        zoomY = 0;
+        applyZoomTransform();
+      });
+
+      closeZoom.addEventListener("click", closeZoomViewer);
+
+
+      zoomCanvas.addEventListener("pointerdown", e => {
+        dragging = true;
+        zoomCanvas.classList.add("dragging");
+        zoomCanvas.setPointerCapture(e.pointerId);
+        dragStartX = e.clientX;
+        dragStartY = e.clientY;
+        originX = zoomX;
+        originY = zoomY;
+      });
+
+      zoomCanvas.addEventListener("pointermove", e => {
+        if (!dragging) return;
+        zoomX = originX + (e.clientX - dragStartX);
+        zoomY = originY + (e.clientY - dragStartY);
+        applyZoomTransform();
+      });
+
+      function endDrag(e) {
+        dragging = false;
+        zoomCanvas.classList.remove("dragging");
+        if (e && zoomCanvas.hasPointerCapture?.(e.pointerId)) {
+          zoomCanvas.releasePointerCapture(e.pointerId);
+        }
+      }
+
+      zoomCanvas.addEventListener("pointerup", endDrag);
+      zoomCanvas.addEventListener("pointercancel", endDrag);
+
+      document.addEventListener("keydown", e => {
+        if (!zoomOverlay.classList.contains("open")) return;
+
+        if (e.key === "Escape") closeZoomViewer();
+        if (e.key === "+") zoomIn.click();
+        if (e.key === "-") zoomOut.click();
+      });
+
+      window.addEventListener("resize", () => {
+        if (pageFlip) renderAround(currentPageIndex + 1);
+
+        if (zoomOverlay.classList.contains("open")) {
+          renderZoomPage(currentPageIndex + 1);
+        }
+      });
+
+      initBook();
+    })();
+  </script>
+</body>
+</html>
