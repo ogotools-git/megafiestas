@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Curso Bouquet de Globos · Mega Fiestas Yumbo</title>
+<meta name="description" content="Curso presencial de bouquet de globos en Mega Fiestas Yumbo, 16 de septiembre. Aprende desde cero y te llevas tu bouquet el mismo día.">
+<link rel="icon" href="../favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/fill/style.css">
+
+<!-- Google Ads -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18347072298"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'AW-18347072298');
+</script>
+
+<style>
+  :root {
+    --color-bg: #161826;
+    --color-surface: #232532;
+    --color-text: #e9e9ed;
+    --color-accent: #9184d9;
+    --color-divider: color-mix(in srgb, #e9e9ed 16%, transparent);
+    --color-neutral-200: #e4e7f5;
+    --color-neutral-300: #cfd3e5;
+    --color-neutral-400: #b2b6ca;
+    --color-neutral-500: #9397ab;
+    --color-accent-200: #e7e5fe;
+    --color-accent-300: #d2cefd;
+    --color-accent-900: #2b2741;
+    --color-section: #262a60;
+    --color-section-glow: #353b80;
+    --font-heading: "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+    --radius-md: 8px;
+    --radius-lg: 14px;
+    --shadow-md: 0 0 0 1px #595d6c, 0 6px 18px rgba(0,0,0,0.55);
+    --shadow-lg: 0 0 0 1px #9397ab, 0 16px 40px rgba(0,0,0,0.65);
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; font-family: var(--font-body); }
+  h1, h2, h3 { font-family: var(--font-heading); }
+  @keyframes bg-pulse { 0%,100% { opacity: 1; } 50% { opacity: .55; } }
+  @keyframes float-y { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes drift-1 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(18px,-24px); } }
+  @keyframes drift-2 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(-22px,20px); } }
+  @keyframes drift-3 { 0%,100% { transform: translate(0,0); } 50% { transform: translate(14px,16px); } }
+  @keyframes shimmer-sweep { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
+  @keyframes glow-pulse { 0%,100% { text-shadow: 0 0 0 transparent; } 50% { text-shadow: 0 0 20px color-mix(in srgb, var(--color-accent) 75%, transparent); } }
+  @keyframes pop-in { 0% { transform: scale(.55); opacity: 0; } 65% { transform: scale(1.08); opacity: 1; } 100% { transform: scale(1); } }
+  @keyframes confetti-fall { 0% { transform: translateY(-6px) rotate(0deg); opacity: 1; } 100% { transform: translateY(150px) rotate(340deg); opacity: 0; } }
+  @keyframes sparkle-spin { 0% { transform: rotate(0deg) scale(1); } 50% { transform: rotate(180deg) scale(1.25); } 100% { transform: rotate(360deg) scale(1); } }
+  @keyframes toast-in { 0% { transform: translateY(16px); opacity: 0; } 100% { transform: translateY(0); opacity: 1; } }
+  @keyframes toast-out { 0% { transform: translateY(0); opacity: 1; } 100% { transform: translateY(16px); opacity: 0; } }
+  .social-toast { animation: toast-in .35s ease both; }
+  .social-toast.out { animation: toast-out .3s ease both; }
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+  .shimmer-cta { background-size: 220% 100%; animation: shimmer-sweep 3.2s linear infinite; }
+  .pulse-num { animation: glow-pulse 2s ease-in-out infinite; }
+  .pop { animation: pop-in .6s cubic-bezier(.2,1.4,.4,1) both; }
+  .om-orb { position: absolute; border-radius: 50%; filter: blur(30px); pointer-events: none; }
+  .om-orb-1 { animation: drift-1 9s ease-in-out infinite; }
+  .om-orb-2 { animation: drift-2 11s ease-in-out infinite; }
+  .om-orb-3 { animation: drift-3 8s ease-in-out infinite; }
+  .om-sparkle { display: inline-block; animation: sparkle-spin 5s linear infinite; }
+  .lift-hover { transition: transform .3s cubic-bezier(.2,.8,.3,1.3), box-shadow .3s ease, border-color .3s ease; }
+  .lift-hover:hover { transform: translateY(-5px); box-shadow: 0 14px 30px color-mix(in srgb, black 30%, transparent); }
+  .confetti-dot { position: absolute; width: 7px; height: 7px; border-radius: 50%; animation: confetti-fall 1.6s ease-out forwards; }
+  .cta-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 14px 34px color-mix(in srgb, #25D366 45%, transparent); }
+  .input:focus-visible { border-color: var(--color-accent); outline: none; }
+  @media (max-width: 680px) {
+    .hero-grid { grid-template-columns: 1fr !important; }
+    .hero-image { min-height: 280px; order: -1; }
+    .instructora-grid { grid-template-columns: 1fr !important; }
+    .instructora-grid img { max-width: 260px; margin: 0 auto; }
+    .pago-grid { grid-template-columns: 1fr !important; text-align: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .om-orb, .om-orb-1, .om-orb-2, .om-orb-3, .om-sparkle, .shimmer-cta, .pulse-num, .pop, .confetti-dot { animation: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .lift-hover:hover { transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div style="background: radial-gradient(1100px 640px at 85% -10%, color-mix(in srgb, var(--color-accent-900) 70%, transparent), transparent 60%), radial-gradient(900px 700px at -10% 30%, color-mix(in srgb, black 28%, transparent), transparent 55%), linear-gradient(180deg, #060d1f, #0d2251 60%, var(--color-bg)); color: var(--color-text); overflow-x: hidden;">
+
+  <!-- HERO -->
+  <section style="position: relative; padding: clamp(28px,6vw,64px) clamp(20px,6vw,72px) clamp(40px,7vw,80px); max-width: 1200px; margin: 0 auto; overflow: visible;">
+    <div class="om-orb om-orb-1" style="top: -40px; left: 8%; width: 180px; height: 180px; background: radial-gradient(circle, color-mix(in srgb, #FF6F91 55%, transparent), transparent 70%);"></div>
+    <div class="om-orb om-orb-2" style="top: 30%; right: 2%; width: 220px; height: 220px; background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 55%, transparent), transparent 70%);"></div>
+    <div class="om-orb om-orb-3" style="bottom: -20px; left: 40%; width: 140px; height: 140px; background: radial-gradient(circle, color-mix(in srgb, #FFB86B 55%, transparent), transparent 70%);"></div>
+    <div style="display: flex; align-items: center; gap: 10px; margin-bottom: clamp(24px,4vw,40px); position: relative;">
+      <img src="../favicon.ico" alt="Mega Fiestas Zona 4" style="height: 44px; width: 44px; border-radius: 50%; background: #fff;">
+      <span style="font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-neutral-400);">Mega Fiestas · Yumbo</span>
+    </div>
+
+    <div class="hero-grid" style="display: grid; grid-template-columns: minmax(0,1.05fr) minmax(280px,0.95fr); gap: clamp(28px,5vw,56px); align-items: center; position: relative;">
+      <div>
+        <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-accent-300); background: color-mix(in srgb, var(--color-accent) 16%, transparent); border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent); padding: 6px 14px; border-radius: 999px; margin-bottom: 18px;">
+          <i class="ph-fill ph-sparkle om-sparkle" style="color: #FF6F91;"></i> Especial Amor y Amistad
+        </span>
+        <h1 style="font-size: clamp(32px,5.2vw,54px); line-height: 1.08; letter-spacing: -0.015em; margin: 0 0 18px; font-weight: 600;">
+          El 16 de septiembre pasa algo especial en Yumbo.
+        </h1>
+        <p style="font-size: clamp(16px,2vw,19px); line-height: 1.6; color: var(--color-neutral-200); max-width: 46ch; margin: 0 0 26px;">
+          Aprende a crear tu propio <strong style="color: var(--color-text);">bouquet de globos</strong> desde cero, con tus manos, y te lo llevas a casa el mismo día. Un curso presencial, práctico, para principiantes — dictado por Olga Lucía Dias en Mega Fiestas Yumbo.
+        </p>
+
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px;">
+          <a href="#formulario" class="shimmer-cta cta-whatsapp" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(100deg, #1fa855, #25D366, #4ee38a, #25D366, #1fa855); color: #06210f; font-weight: 700; font-size: 16px; text-decoration: none; padding: 15px 26px; border-radius: var(--radius-md); cursor: pointer; box-shadow: 0 10px 30px color-mix(in srgb, #25D366 35%, transparent); transition: transform .2s ease, box-shadow .2s ease;">
+            <i class="ph-fill ph-whatsapp-logo" style="font-size: 20px;"></i> Reservar mi cupo
+          </a>
+          <span style="display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--color-neutral-400);">
+            <i class="ph ph-map-pin"></i> Cra. 4 #13-54, Barrio Bolívar, Yumbo
+          </span>
+        </div>
+
+        <div id="countdown" style="display: grid; grid-template-columns: repeat(4, auto); gap: 14px; max-width: 460px;"></div>
+        <p style="font-size: 13px; color: var(--color-neutral-500); margin: 10px 0 0;">Faltan para el inicio del curso · 16 sep · 2:30 p.m.</p>
+      </div>
+
+      <div class="hero-image" style="position: relative; height: 100%; min-height: 360px;">
+        <div style="position: absolute; inset: -30px; background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 35%, transparent), transparent 65%); filter: blur(10px); animation: bg-pulse 4s ease-in-out infinite;"></div>
+        <div style="position: relative; background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: 10px; box-shadow: var(--shadow-lg); animation: float-y 6s ease-in-out infinite; height: 100%; display: flex; flex-direction: column;">
+          <img src="assets/logo-bouquet.webp" alt="Bouquet de globos rojo, dorado y plateado" style="width: 100%; flex: 1; min-height: 0; object-fit: cover; border-radius: var(--radius-md); display: block;">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 12px;">
+            <span style="font-size: 13px; color: var(--color-neutral-400);">Así te lo llevas a casa</span>
+            <i class="ph ph-heart-straight" style="color: var(--color-accent-300);"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CURIOSIDAD -->
+  <section class="reveal" style="max-width: 800px; margin: 0 auto; padding: clamp(20px,5vw,32px) clamp(20px,6vw,72px) clamp(48px,7vw,72px); text-align: center;">
+    <div style="border: 1px dashed color-mix(in srgb, var(--color-accent) 45%, transparent); border-radius: var(--radius-lg); padding: clamp(24px,4vw,36px);">
+      <i class="ph ph-gift" style="font-size: 30px; color: var(--color-accent-300);"></i>
+      <h2 style="font-size: clamp(20px,2.6vw,26px); margin: 14px 0 10px; font-weight: 600;">Hay algo que cada participante se lleva y que no está en esta página.</h2>
+      <p style="color: var(--color-neutral-300); font-size: 15.5px; line-height: 1.6; margin: 0;">No lo vamos a revelar aquí. Lo descubres al inscribirte — y créenos, vale la pena la curiosidad.</p>
+    </div>
+  </section>
+
+  <!-- STORYTELLING -->
+  <section class="reveal" style="max-width: 760px; margin: 0 auto; padding: 0 clamp(20px,6vw,72px) clamp(56px,7vw,80px);">
+    <p style="font-size: clamp(19px,2.4vw,24px); line-height: 1.55; font-weight: 500; margin: 0; color: var(--color-text);">
+      Imagínate llegar a casa de esa persona especial con un bouquet de globos que tú misma creaste, con tus propias manos, en una tarde. No es una compra más: es un regalo que lleva tu tiempo, tu esfuerzo y una habilidad nueva que ya es tuya para siempre.
+    </p>
+  </section>
+
+  <!-- QUE INCLUYE -->
+  <section class="reveal" style="background: var(--color-surface); border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); padding: clamp(48px,7vw,72px) clamp(20px,6vw,72px);">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <span style="display: block; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-accent-300); margin-bottom: 10px;">Nosotros ponemos los materiales. Tú pones las ganas.</span>
+      <h2 style="font-size: clamp(24px,3vw,32px); margin: 0 0 30px; font-weight: 600;">Todo esto está incluido en $40.000</h2>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px;">
+        <div class="lift-hover" style="background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+          <i class="ph ph-package" style="font-size: 22px; color: var(--color-accent-300);"></i>
+          <p style="margin: 12px 0 0; font-size: 14.5px; line-height: 1.4; color: var(--color-neutral-200);">Kit de materiales completo (globos, cintas, herramientas)</p>
+        </div>
+        <div class="lift-hover" style="background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+          <i class="ph ph-gift" style="font-size: 22px; color: var(--color-accent-300);"></i>
+          <p style="margin: 12px 0 0; font-size: 14.5px; line-height: 1.4; color: var(--color-neutral-200);">El bouquet terminado que creas y te llevas a casa</p>
+        </div>
+        <div class="lift-hover" style="background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+          <i class="ph ph-book-open" style="font-size: 22px; color: var(--color-accent-300);"></i>
+          <p style="margin: 12px 0 0; font-size: 14.5px; line-height: 1.4; color: var(--color-neutral-200);">Manual digital paso a paso</p>
+        </div>
+        <div class="lift-hover" style="background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+          <i class="ph ph-certificate" style="font-size: 22px; color: var(--color-accent-300);"></i>
+          <p style="margin: 12px 0 0; font-size: 14.5px; line-height: 1.4; color: var(--color-neutral-200);">Certificado de participación</p>
+        </div>
+        <div class="lift-hover" style="background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+          <i class="ph ph-coffee" style="font-size: 22px; color: var(--color-accent-300);"></i>
+          <p style="margin: 12px 0 0; font-size: 14.5px; line-height: 1.4; color: var(--color-neutral-200);">Coffee break</p>
+        </div>
+        <div class="lift-hover" style="background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+          <i class="ph ph-user-focus" style="font-size: 22px; color: var(--color-accent-300);"></i>
+          <p style="margin: 12px 0 0; font-size: 14.5px; line-height: 1.4; color: var(--color-neutral-200);">Acompañamiento directo de la instructora, todo el curso</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUE VAS A APRENDER -->
+  <section class="reveal" style="max-width: 1100px; margin: 0 auto; padding: clamp(48px,7vw,72px) clamp(20px,6vw,72px);">
+    <span style="display: block; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-accent-300); margin-bottom: 10px;">De cero a bouquet terminado</span>
+    <h2 style="font-size: clamp(24px,3vw,32px); margin: 0 0 30px; font-weight: 600;">Qué vas a aprender</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px 24px;">
+      <div class="lift-hover" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--color-divider);">
+        <div style="min-width: 40px; height: 40px; border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-accent) 15%, transparent); display: flex; align-items: center; justify-content: center;">
+          <i class="ph ph-wind" style="color: var(--color-accent-300); font-size: 18px;"></i>
+        </div>
+        <div>
+          <p style="margin: 0; font-weight: 600; font-size: 15.5px;">Técnica de inflado</p>
+          <p style="margin: 4px 0 0; font-size: 14px; color: var(--color-neutral-400); line-height: 1.4;">Presión y tamaño correctos en cada globo.</p>
+        </div>
+      </div>
+      <div class="lift-hover" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--color-divider);">
+        <div style="min-width: 40px; height: 40px; border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-accent) 15%, transparent); display: flex; align-items: center; justify-content: center;">
+          <i class="ph ph-ruler" style="color: var(--color-accent-300); font-size: 18px;"></i>
+        </div>
+        <div>
+          <p style="margin: 0; font-weight: 600; font-size: 15.5px;">Medición y proporciones</p>
+          <p style="margin: 4px 0 0; font-size: 14px; color: var(--color-neutral-400); line-height: 1.4;">Globos uniformes, sin improvisar.</p>
+        </div>
+      </div>
+      <div class="lift-hover" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--color-divider);">
+        <div style="min-width: 40px; height: 40px; border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-accent) 15%, transparent); display: flex; align-items: center; justify-content: center;">
+          <i class="ph ph-palette" style="color: var(--color-accent-300); font-size: 18px;"></i>
+        </div>
+        <div>
+          <p style="margin: 0; font-weight: 600; font-size: 15.5px;">Combinación de colores</p>
+          <p style="margin: 4px 0 0; font-size: 14px; color: var(--color-neutral-400); line-height: 1.4;">Paletas que funcionan para cualquier ocasión.</p>
+        </div>
+      </div>
+      <div class="lift-hover" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--color-divider);">
+        <div style="min-width: 40px; height: 40px; border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-accent) 15%, transparent); display: flex; align-items: center; justify-content: center;">
+          <i class="ph ph-puzzle-piece" style="color: var(--color-accent-300); font-size: 18px;"></i>
+        </div>
+        <div>
+          <p style="margin: 0; font-weight: 600; font-size: 15.5px;">Técnicas de armado</p>
+          <p style="margin: 4px 0 0; font-size: 14px; color: var(--color-neutral-400); line-height: 1.4;">Estructura y ensamble que sostiene la forma.</p>
+        </div>
+      </div>
+      <div class="lift-hover" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--color-divider);">
+        <div style="min-width: 40px; height: 40px; border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-accent) 15%, transparent); display: flex; align-items: center; justify-content: center;">
+          <i class="ph ph-flower-lotus" style="color: var(--color-accent-300); font-size: 18px;"></i>
+        </div>
+        <div>
+          <p style="margin: 0; font-weight: 600; font-size: 15.5px;">Elaboración del bouquet</p>
+          <p style="margin: 4px 0 0; font-size: 14px; color: var(--color-neutral-400); line-height: 1.4;">De inicio a fin, con tus propias manos.</p>
+        </div>
+      </div>
+      <div class="lift-hover" style="display: flex; gap: 14px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid var(--color-divider);">
+        <div style="min-width: 40px; height: 40px; border-radius: var(--radius-md); background: color-mix(in srgb, var(--color-accent) 15%, transparent); display: flex; align-items: center; justify-content: center;">
+          <i class="ph ph-medal" style="color: var(--color-accent-300); font-size: 18px;"></i>
+        </div>
+        <div>
+          <p style="margin: 0; font-weight: 600; font-size: 15.5px;">Acabados y presentación</p>
+          <p style="margin: 4px 0 0; font-size: 14px; color: var(--color-neutral-400); line-height: 1.4;">El detalle final que hace la diferencia.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTORA -->
+  <section class="reveal" style="background: var(--color-surface); border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); padding: clamp(48px,7vw,72px) clamp(20px,6vw,72px);">
+    <div class="instructora-grid" style="max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: minmax(0,1fr) minmax(220px,300px); gap: clamp(24px,4vw,48px); align-items: center;">
+      <div style="order: 1;">
+        <span style="display: block; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-accent-300); margin-bottom: 10px;">Quién te enseña</span>
+        <h2 style="font-size: clamp(22px,2.8vw,28px); margin: 0 0 12px; font-weight: 600;">Olga Lucía Dias — Instructora certificada</h2>
+        <p style="font-size: 15.5px; line-height: 1.6; color: var(--color-neutral-200); max-width: 54ch; margin: 0 0 16px;">
+          Formada y certificada en la técnica de globos, Olga te acompaña de principio a fin dentro del curso: desde tu primer globo inflado hasta el bouquet terminado. Sin prisa, sin dejarte sola en ningún paso.
+        </p>
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <span style="display: inline-flex; align-items: center; gap: 6px; font-size: 13px; background: color-mix(in srgb, var(--color-accent) 14%, transparent); color: var(--color-accent-300); padding: 6px 12px; border-radius: 999px; border: 1px solid color-mix(in srgb, var(--color-accent) 35%, transparent);">
+            <i class="ph ph-seal-check"></i> Instructora certificada
+          </span>
+          <span style="font-size: 13px; color: var(--color-neutral-400);">Mega Fiestas Zona 4 · Yumbo</span>
+        </div>
+      </div>
+      <img src="assets/logo-profe.webp" alt="Olga Lucía Dias, instructora certificada" class="lift-hover" style="order: 2; width: 100%; aspect-ratio: 1; object-fit: cover; object-position: top; border-radius: var(--radius-lg); box-shadow: var(--shadow-md); background: #fff;">
+    </div>
+  </section>
+
+  <!-- PRECIO Y DETALLES -->
+  <section class="reveal" style="max-width: 1100px; margin: 0 auto; padding: clamp(48px,7vw,72px) clamp(20px,6vw,72px);">
+    <span style="display: block; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-accent-300); margin-bottom: 10px;">Todo lo que necesitas saber</span>
+    <h2 style="font-size: clamp(24px,3vw,32px); margin: 0 0 30px; font-weight: 600;">Fecha, lugar y cupos</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px,1fr)); gap: 16px; margin-bottom: 24px;">
+      <div class="lift-hover" style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+        <i class="ph ph-calendar" style="font-size: 20px; color: var(--color-accent-300);"></i>
+        <p style="margin: 10px 0 2px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-neutral-500);">Fecha</p>
+        <p style="margin: 0; font-size: 16px; font-weight: 600;">16 de septiembre, 2026</p>
+      </div>
+      <div class="lift-hover" style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+        <i class="ph ph-clock" style="font-size: 20px; color: var(--color-accent-300);"></i>
+        <p style="margin: 10px 0 2px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-neutral-500);">Hora</p>
+        <p style="margin: 0; font-size: 16px; font-weight: 600;">2:30 p.m.</p>
+      </div>
+      <div class="lift-hover" style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+        <i class="ph ph-map-pin" style="font-size: 20px; color: var(--color-accent-300);"></i>
+        <p style="margin: 10px 0 2px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-neutral-500);">Lugar</p>
+        <p style="margin: 0; font-size: 16px; font-weight: 600;">Mega Fiestas Yumbo</p>
+      </div>
+      <div class="lift-hover" style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+        <i class="ph ph-currency-circle-dollar" style="font-size: 20px; color: var(--color-accent-300);"></i>
+        <p style="margin: 10px 0 2px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-neutral-500);">Precio</p>
+        <p style="margin: 0; font-size: 16px; font-weight: 600;">$40.000 — todo incluido</p>
+      </div>
+      <div class="lift-hover" style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+        <i class="ph ph-users" style="font-size: 20px; color: var(--color-accent-300);"></i>
+        <p style="margin: 10px 0 2px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-neutral-500);">Capacidad</p>
+        <p style="margin: 0; font-size: 16px; font-weight: 600;">40 personas máximo</p>
+      </div>
+      <div class="lift-hover" style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 18px;">
+        <i class="ph ph-map-pin-area" style="font-size: 20px; color: var(--color-accent-300);"></i>
+        <p style="margin: 10px 0 2px; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--color-neutral-500);">Dirección</p>
+        <p style="margin: 0; font-size: 16px; font-weight: 600;">Cra. 4 #13-54, Barrio Bolívar, Yumbo</p>
+      </div>
+    </div>
+    <div class="pago-grid" style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: clamp(20px,3vw,28px); display: grid; grid-template-columns: minmax(120px,180px) minmax(0,1fr); gap: clamp(16px,3vw,28px); align-items: center;">
+      <img src="assets/metodospago-e4120fa6.webp" alt="Métodos de pago: Daviplata y Bre-B" style="width: 100%; max-width: 220px; margin: 0 auto; border-radius: var(--radius-md);">
+      <div>
+        <p style="margin: 0 0 6px; font-size: 15.5px; font-weight: 600;">¿Prefieres separar tu cupo?</p>
+        <p style="margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--color-neutral-300);">Puedes reservar tu lugar con el <strong style="color: var(--color-text);">50% del valor</strong> por Daviplata (310 709 0719) o Bre-B (@PLATA3107090719), y completas el resto el día del curso.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTROVERSIA -->
+  <section class="reveal" style="background: var(--color-section); background-image: radial-gradient(900px 420px at 85% -30%, color-mix(in srgb, var(--color-section-glow) 65%, transparent), transparent 65%); padding: clamp(56px,8vw,88px) clamp(20px,6vw,72px);">
+    <div style="max-width: 760px; margin: 0 auto; text-align: center;">
+      <h2 style="font-size: clamp(24px,3.4vw,34px); line-height: 1.3; margin: 0 0 16px; font-weight: 600;">
+        Un bouquet de $40.000 en una floristería te dura 3 días.
+      </h2>
+      <p class="pulse-num" style="font-size: clamp(18px,2.4vw,22px); color: var(--color-accent-200); margin: 0; font-weight: 500;">
+        Aprender a hacerlo te dura toda la vida.
+      </p>
+    </div>
+  </section>
+
+  <!-- ALIADOS -->
+  <section class="reveal" style="max-width: 1100px; margin: 0 auto; padding: clamp(48px,7vw,72px) clamp(20px,6vw,72px);">
+    <p style="text-align: center; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-neutral-500); margin: 0 0 24px;">Curso respaldado por</p>
+    <div style="display: flex; justify-content: center; align-items: center; gap: clamp(20px,4vw,40px); flex-wrap: wrap;">
+      <div class="lift-hover" style="background: #fdfdfd; border-radius: var(--radius-md); padding: 14px; display: flex; align-items: center; justify-content: center; height: 140px; width: 140px;">
+        <img src="../favicon.ico" alt="Mega Fiestas Zona 4" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="lift-hover" style="background: #fdfdfd; border-radius: var(--radius-md); padding: 14px; display: flex; align-items: center; justify-content: center; height: 140px; width: 140px;">
+        <img src="assets/logo-artballon.webp" alt="Art Balloons" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="lift-hover" style="background: #fdfdfd; border-radius: var(--radius-md); padding: 14px; display: flex; align-items: center; justify-content: center; height: 140px; width: 140px;">
+        <img src="assets/logo-payaso.webp" alt="Globos Payaso" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+      <div class="lift-hover" style="background: #fdfdfd; border-radius: var(--radius-md); padding: 14px; display: flex; align-items: center; justify-content: center; height: 140px; width: 140px;">
+        <img src="assets/logo-saloneventos.webp" alt="Salón de Eventos DP" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+      </div>
+    </div>
+    <p style="text-align: center; font-size: 13.5px; color: var(--color-neutral-500); margin: 22px 0 0;">Los cupos de ediciones anteriores se agotaron antes del evento.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section class="reveal" style="background: var(--color-surface); border-top: 1px solid var(--color-divider); border-bottom: 1px solid var(--color-divider); padding: clamp(48px,7vw,72px) clamp(20px,6vw,72px);">
+    <div style="max-width: 720px; margin: 0 auto;">
+      <span style="display: block; font-size: 13px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-accent-300); margin-bottom: 10px;">Preguntas frecuentes</span>
+      <h2 style="font-size: clamp(24px,3vw,32px); margin: 0 0 24px; font-weight: 600;">Antes de que preguntes</h2>
+      <div id="faq-list"></div>
+    </div>
+  </section>
+
+  <!-- FORMULARIO -->
+  <section id="formulario" style="max-width: 560px; margin: 0 auto; padding: clamp(48px,7vw,80px) clamp(20px,6vw,72px);">
+    <div style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: clamp(24px,4vw,36px); box-shadow: var(--shadow-md);">
+      <h2 style="font-size: clamp(22px,2.8vw,28px); margin: 0 0 8px; font-weight: 600; text-align: center;">Reserva tu cupo</h2>
+      <p style="text-align: center; font-size: 14.5px; color: var(--color-neutral-400); margin: 0 0 24px;">Dos datos. Un mensaje directo por WhatsApp. Así de simple.</p>
+
+      <form id="reserva-form" style="display: flex; flex-direction: column; gap: 14px;">
+        <div>
+          <label style="display: block; font-size: 13px; color: var(--color-neutral-400); margin-bottom: 6px;">Tu nombre</label>
+          <input id="input-nombre" class="input" type="text" placeholder="Ej: Laura Gómez" required style="width: 100%; background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 12px 14px; color: var(--color-text); font-size: 15px;">
+        </div>
+        <div>
+          <label style="display: block; font-size: 13px; color: var(--color-neutral-400); margin-bottom: 6px;">Tu WhatsApp</label>
+          <input id="input-telefono" class="input" type="tel" placeholder="Ej: 310 000 0000" required style="width: 100%; background: var(--color-bg); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 12px 14px; color: var(--color-text); font-size: 15px;">
+        </div>
+        <button type="submit" style="margin-top: 6px; display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: #06210f; font-weight: 700; font-size: 16px; border: none; padding: 15px 22px; border-radius: var(--radius-md); cursor: pointer;">
+          <i class="ph-fill ph-whatsapp-logo" style="font-size: 20px;"></i> Enviar y reservar
+        </button>
+        <p style="font-size: 12px; color: var(--color-neutral-500); text-align: center; margin: 4px 0 0;">Al enviar, se abrirá el grupo de WhatsApp del curso.</p>
+      </form>
+
+      <div id="form-success" style="display: none; text-align: center; position: relative;">
+        <div class="confetti-dot" style="left: 30%; top: -6px; background: #FF6F91; animation-delay: .1s;"></div>
+        <div class="confetti-dot" style="left: 50%; top: -6px; background: var(--color-accent); animation-delay: .25s;"></div>
+        <div class="confetti-dot" style="left: 68%; top: -6px; background: #FFB86B; animation-delay: .05s;"></div>
+        <div class="confetti-dot" style="left: 42%; top: -6px; background: #4ee38a; animation-delay: .35s;"></div>
+        <i class="ph-fill ph-check-circle pop" style="font-size: 40px; color: #25D366;"></i>
+        <p id="form-success-name" style="font-size: 16px; font-weight: 600; margin: 14px 0 6px;">¡Listo!</p>
+        <p style="font-size: 14.5px; color: var(--color-neutral-300); margin: 0 0 18px;">Termina de confirmar tu cupo en WhatsApp y únete a la comunidad de mujeres que ya están creando.</p>
+        <a href="https://chat.whatsapp.com/KBZyOYKKGBK3shHJJ5FZsB" target="_blank" rel="noopener" style="color: var(--color-accent-300); font-size: 14.5px; font-weight: 600; text-decoration: none;">Unirme al grupo del curso →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="border-top: 1px solid var(--color-divider); padding: clamp(32px,5vw,44px) clamp(20px,6vw,72px);">
+    <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: center;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <img src="../favicon.ico" alt="Mega Fiestas Zona 4" style="height: 40px; width: 40px; border-radius: 50%; background: #fff;">
+        <div>
+          <p style="margin: 0; font-size: 14px; font-weight: 600;">Mega Fiestas Zona 4</p>
+          <p style="margin: 2px 0 0; font-size: 13px; color: var(--color-neutral-500);">Cra. 4 #13-54, Barrio Bolívar, Yumbo, Valle del Cauca</p>
+        </div>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 4px; font-size: 13px; color: var(--color-neutral-400); text-align: right;">
+        <a href="tel:+573107090719" style="color: var(--color-neutral-300);">+57 310 709 0719</a>
+        <button id="open-terms" style="background: none; border: none; padding: 0; color: var(--color-neutral-400); font-size: 13px; cursor: pointer; text-decoration: underline; text-align: right;">Términos y condiciones</button>
+      </div>
+    </div>
+  </footer>
+
+  <div id="terms-modal" style="display: none; position: fixed; inset: 0; background: color-mix(in srgb, black 65%, transparent); z-index: 100; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); max-width: 560px; max-height: 80vh; overflow-y: auto; padding: clamp(24px,4vw,32px); box-shadow: var(--shadow-lg);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="margin: 0; font-size: 20px; font-weight: 600;">Términos y condiciones</h3>
+        <button id="close-terms" style="background: none; border: none; cursor: pointer; color: var(--color-neutral-400); font-size: 22px; line-height: 1;">×</button>
+      </div>
+      <div style="font-size: 14px; line-height: 1.6; color: var(--color-neutral-300); display: flex; flex-direction: column; gap: 12px;">
+        <p>Cupo limitado a 40 personas. La inscripción se confirma reservando por WhatsApp o Daviplata/Bre-B; el pago del 50% permite separar el cupo y el saldo se completa el día del curso.</p>
+        <p>El precio de $40.000 por persona incluye kit de materiales, el bouquet elaborado, manual digital, certificado de participación y coffee break.</p>
+        <p>El curso se realiza el 16 de septiembre de 2026, a las 2:30 p.m., en Mega Fiestas Yumbo (Cra. 4 #13-54, Barrio Bolívar, Yumbo, Valle del Cauca).</p>
+        <p>Los cupos reservados no son transferibles a otra fecha sin previo acuerdo con la organización. En caso de fuerza mayor, Mega Fiestas se reserva el derecho de reprogramar el curso, notificando a los inscritos por WhatsApp.</p>
+        <p>Al inscribirte aceptas ser contactada por WhatsApp para recibir información relacionada con el curso.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="social-toast-container" style="position: fixed; left: 16px; bottom: 16px; z-index: 90; display: flex; flex-direction: column; gap: 10px; max-width: min(320px, calc(100vw - 32px));"></div>
+
+  <div id="cupos-modal" style="display: none; position: fixed; inset: 0; background: color-mix(in srgb, black 65%, transparent); z-index: 100; align-items: center; justify-content: center; padding: 20px;">
+    <div style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); max-width: 420px; width: 100%; padding: clamp(24px,4vw,32px); box-shadow: var(--shadow-lg); text-align: center; position: relative;">
+      <button id="close-cupos" style="position: absolute; top: 14px; right: 14px; background: none; border: none; cursor: pointer; color: var(--color-neutral-400); font-size: 22px; line-height: 1;">×</button>
+      <i class="ph-fill ph-timer" style="font-size: 32px; color: var(--color-accent-300);"></i>
+      <h3 style="margin: 14px 0 10px; font-size: 22px; font-weight: 600;">Solo 14 cupos disponibles</h3>
+      <p style="margin: 0 0 22px; font-size: 14.5px; line-height: 1.6; color: var(--color-neutral-300);">Recuerda que puedes separar tu cupo con el 50% y el resto lo completas el día del curso.</p>
+      <a href="#formulario" id="cupos-cta" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: #06210f; font-weight: 700; font-size: 15.5px; text-decoration: none; padding: 14px 22px; border-radius: var(--radius-md); cursor: pointer; width: 100%;">
+        <i class="ph-fill ph-whatsapp-logo" style="font-size: 18px;"></i> Reservar mi cupo ya
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function () {
+  var LEADS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbz-2m9v4Su0ZbQB1hjDdLUOju4dyOBEq1XTDagWsDEoWSTh1XMlyTY6HTv42W9PjIJH/exec';
+  var GROUP_LINK = 'https://chat.whatsapp.com/KBZyOYKKGBK3shHJJ5FZsB';
+  var TARGET = new Date('2026-09-16T14:30:00-05:00').getTime();
+
+  // Countdown
+  var countdownEl = document.getElementById('countdown');
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function renderCountdown() {
+    var diff = Math.max(0, TARGET - Date.now());
+    var days = Math.floor(diff / 86400000);
+    var hours = Math.floor((diff % 86400000) / 3600000);
+    var minutes = Math.floor((diff % 3600000) / 60000);
+    var seconds = Math.floor((diff % 60000) / 1000);
+    var units = [
+      { value: pad(days), label: 'Días' },
+      { value: pad(hours), label: 'Horas' },
+      { value: pad(minutes), label: 'Min' },
+      { value: pad(seconds), label: 'Seg' },
+    ];
+    countdownEl.innerHTML = units.map(function (u) {
+      return '<div class="lift-hover" style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 12px 6px; text-align: center;">' +
+        '<div class="pulse-num" style="font-size: clamp(22px,3vw,30px); font-weight: 700; font-feature-settings: \'tnum\' 1; color: var(--color-accent-300); line-height: 1;">' + u.value + '</div>' +
+        '<div style="font-size: 10px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-neutral-500); margin-top: 4px;">' + u.label + '</div>' +
+        '</div>';
+    }).join('');
+  }
+  renderCountdown();
+  setInterval(renderCountdown, 1000);
+
+  // Scroll reveal
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) e.target.classList.add('in'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(function (el) { observer.observe(el); });
+
+  // FAQ accordion
+  var faqData = [
+    { q: '¿Necesito experiencia previa con globos?', a: 'Ninguna. El curso está diseñado para empezar desde cero absoluto — solo necesitas ganas (y dos manos).' },
+    { q: '¿Tengo que comprar materiales por mi cuenta?', a: 'No. Todo el kit de materiales, herramientas y cintas está incluido en el precio.' },
+    { q: '¿Es una clase teórica o voy a hacer algo con mis manos?', a: 'Es 100% práctica: tú elaboras tu propio bouquet de inicio a fin, con acompañamiento directo de la instructora.' },
+    { q: '¿Qué me llevo al terminar el curso?', a: 'Tu bouquet terminado, un manual digital paso a paso, certificado de participación, coffee break y una habilidad que ya es tuya.' },
+    { q: '¿Vale la pena pagar $40.000 por esto?', a: 'Un bouquet de floristería dura unos días. Lo que aprendes aquí lo usas para siempre — en regalos, celebraciones y hasta como un posible emprendimiento.' },
+  ];
+  var faqList = document.getElementById('faq-list');
+  var openIndex = 0;
+  function renderFaq() {
+    faqList.innerHTML = faqData.map(function (f, i) {
+      var open = openIndex === i;
+      return '<div style="border-bottom: 1px solid var(--color-divider);">' +
+        '<button data-i="' + i + '" class="faq-toggle" style="width: 100%; background: none; border: none; text-align: left; padding: 16px 0; display: flex; justify-content: space-between; align-items: center; cursor: pointer; color: var(--color-text); font-size: 15.5px; font-weight: 600; gap: 12px;">' +
+        f.q +
+        '<i class="ph ph-' + (open ? 'minus' : 'plus') + '" style="color: var(--color-accent-300); flex-shrink: 0;"></i>' +
+        '</button>' +
+        (open ? '<p style="margin: 0 0 16px; font-size: 14.5px; line-height: 1.55; color: var(--color-neutral-300);">' + f.a + '</p>' : '') +
+        '</div>';
+    }).join('');
+    faqList.querySelectorAll('.faq-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var i = Number(btn.getAttribute('data-i'));
+        openIndex = openIndex === i ? -1 : i;
+        renderFaq();
+      });
+    });
+  }
+  renderFaq();
+
+  // Terms modal
+  var termsModal = document.getElementById('terms-modal');
+  document.getElementById('open-terms').addEventListener('click', function () { termsModal.style.display = 'flex'; });
+  document.getElementById('close-terms').addEventListener('click', function () { termsModal.style.display = 'none'; });
+  termsModal.addEventListener('click', function (e) { if (e.target === termsModal) termsModal.style.display = 'none'; });
+
+  // Popup de escasez (cupos): aparece una vez por sesión, unos segundos después de cargar
+  var cuposModal = document.getElementById('cupos-modal');
+  function closeCuposModal() { cuposModal.style.display = 'none'; }
+  document.getElementById('close-cupos').addEventListener('click', closeCuposModal);
+  cuposModal.addEventListener('click', function (e) { if (e.target === cuposModal) closeCuposModal(); });
+  document.getElementById('cupos-cta').addEventListener('click', closeCuposModal);
+
+  var cuposShown = false;
+  try { cuposShown = sessionStorage.getItem('cuposModalShown') === '1'; } catch (err) {}
+
+  function triggerCuposModal() {
+    if (cuposShown) return;
+    if (cuposModal.style.display === 'flex') return;
+    cuposShown = true;
+    try { sessionStorage.setItem('cuposModalShown', '1'); } catch (err) {}
+    cuposModal.style.display = 'flex';
+  }
+
+  // No se dispara antes de que el usuario alcance a ver algo de la página
+  var earliestTrigger = Date.now() + 3000;
+
+  // Desktop: intención de salida — el mouse sale por arriba del viewport
+  // (hacia la barra de pestañas/URL) o se mueve hacia arriba muy rápido
+  // cerca del borde superior.
+  var lastMoveY = null, lastMoveT = null;
+  document.addEventListener('mousemove', function (e) {
+    var now = Date.now();
+    if (lastMoveY !== null && e.clientY < 60) {
+      var dy = e.clientY - lastMoveY;
+      var dt = now - lastMoveT;
+      if (dt > 0 && dt < 200 && dy < -50 && now > earliestTrigger) {
+        triggerCuposModal();
+      }
+    }
+    lastMoveY = e.clientY;
+    lastMoveT = now;
+  });
+  document.addEventListener('mouseleave', function (e) {
+    if (e.clientY <= 0 && Date.now() > earliestTrigger) triggerCuposModal();
+  });
+
+  // Mobile: intento de volver atrás — capturamos el primer "atrás" con un
+  // estado trampa en el historial; si el usuario insiste, la segunda vez
+  // sí lo deja salir con normalidad.
+  var backTrapArmed = false;
+  try {
+    history.pushState({ cuposTrap: true }, '');
+    backTrapArmed = true;
+  } catch (err) {}
+  window.addEventListener('popstate', function () {
+    if (backTrapArmed && Date.now() > earliestTrigger) {
+      backTrapArmed = false;
+      triggerCuposModal();
+      try { history.pushState({ cuposTrap: true }, ''); } catch (err) {}
+    }
+  });
+
+  // Notificaciones de prueba social: nombre + acción aleatorios, cada tanto
+  var socialNames = [
+    'María', 'Angela G.', 'Laura P.', 'Daniela R.', 'Carolina M.', 'Valentina S.',
+    'Juliana R.', 'Camila T.', 'Sofía T.', 'Natalia V.', 'Paula G.', 'Andrea L.',
+    'Yesenia C.', 'Diana M.', 'Estefanía O.',
+  ];
+  var socialActions = [
+    'acaba de acceder al curso.',
+    'ya separó su cupo.',
+    'acaba de reservar su cupo por WhatsApp.',
+    'está viendo los cupos disponibles.',
+    'acaba de inscribirse al curso.',
+    'separó su cupo con el 50%.',
+  ];
+  var socialToastContainer = document.getElementById('social-toast-container');
+  var socialToastCount = 0;
+  var socialToastMax = 6;
+
+  function pick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+  function showSocialToast() {
+    if (document.hidden) return;
+    if (cuposModal.style.display === 'flex' || termsModal.style.display === 'flex') return;
+
+    var name = pick(socialNames);
+    var action = pick(socialActions);
+    var toast = document.createElement('div');
+    toast.className = 'social-toast';
+    toast.style.cssText = 'display:flex; align-items:center; gap:10px; background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 10px 14px; box-shadow: var(--shadow-md); font-size: 13.5px; color: var(--color-neutral-200);';
+    toast.innerHTML =
+      '<span style="min-width:32px; height:32px; border-radius:50%; background: color-mix(in srgb, var(--color-accent) 30%, transparent); color: var(--color-accent-300); display:flex; align-items:center; justify-content:center; font-weight:700; font-size:13px; flex-shrink:0;">' +
+      name.charAt(0) +
+      '</span><span><strong style="color: var(--color-text);">' + name + '</strong> ' + action + '</span>';
+    socialToastContainer.appendChild(toast);
+
+    setTimeout(function () {
+      toast.classList.add('out');
+      setTimeout(function () { toast.remove(); }, 320);
+    }, 4800);
+  }
+
+  function scheduleNextSocialToast() {
+    if (socialToastCount >= socialToastMax) return;
+    var delay = 12000 + Math.random() * 15000;
+    setTimeout(function () {
+      showSocialToast();
+      socialToastCount++;
+      scheduleNextSocialToast();
+    }, delay);
+  }
+  scheduleNextSocialToast();
+
+  // Reserva form: captura el lead en el Worker (Baserow) y luego redirige a WhatsApp
+  var form = document.getElementById('reserva-form');
+  var successBox = document.getElementById('form-success');
+  var successName = document.getElementById('form-success-name');
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nombre = document.getElementById('input-nombre').value.trim();
+    var telefono = document.getElementById('input-telefono').value.trim();
+    if (!nombre || !telefono) return;
+
+    // Captura del lead. No bloquea la redirección: si el usuario cierra la
+    // pestaña o falla la red, igual queda reservado su cupo por WhatsApp.
+    fetch(LEADS_ENDPOINT, {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify({ nombre: nombre, telefono: telefono }),
+    }).catch(function (err) {
+      console.error('No se pudo enviar el lead a la hoja de cálculo:', err);
+    });
+
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'conversion', { send_to: 'AW-18347072298/whatsapp_click' });
+    }
+
+    window.open(GROUP_LINK, '_blank');
+
+    successName.textContent = '¡Listo, ' + nombre + '!';
+    form.style.display = 'none';
+    successBox.style.display = 'block';
+  });
+})();
+</script>
+
+</body>
+</html>
