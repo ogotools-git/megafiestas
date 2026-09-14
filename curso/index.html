@@ -77,7 +77,7 @@
   .input:focus-visible { border-color: var(--color-accent); outline: none; }
   @media (max-width: 680px) {
     .hero-grid { grid-template-columns: 1fr !important; }
-    .hero-image { min-height: 280px; order: -1; }
+    .hero-image { max-width: 220px; margin-top: 20px; }
     .instructora-grid { grid-template-columns: 1fr !important; }
     .instructora-grid img { max-width: 260px; margin: 0 auto; }
     .pago-grid { grid-template-columns: 1fr !important; text-align: center; }
@@ -94,7 +94,7 @@
 <div style="background: radial-gradient(1100px 640px at 85% -10%, color-mix(in srgb, var(--color-accent-900) 70%, transparent), transparent 60%), radial-gradient(900px 700px at -10% 30%, color-mix(in srgb, black 28%, transparent), transparent 55%), linear-gradient(180deg, #060d1f, #0d2251 60%, var(--color-bg)); color: var(--color-text); overflow-x: hidden;">
 
   <!-- HERO -->
-  <section style="position: relative; padding: clamp(28px,6vw,64px) clamp(20px,6vw,72px) clamp(40px,7vw,80px); max-width: 1200px; margin: 0 auto; overflow: visible;">
+  <section style="position: relative; padding: clamp(18px,3vw,36px) clamp(20px,6vw,72px) clamp(24px,4vw,44px); max-width: 1200px; margin: 0 auto; overflow: visible;">
     <div class="om-orb om-orb-1" style="top: -40px; left: 8%; width: 180px; height: 180px; background: radial-gradient(circle, color-mix(in srgb, #FF6F91 55%, transparent), transparent 70%);"></div>
     <div class="om-orb om-orb-2" style="top: 30%; right: 2%; width: 220px; height: 220px; background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 55%, transparent), transparent 70%);"></div>
     <div class="om-orb om-orb-3" style="bottom: -20px; left: 40%; width: 140px; height: 140px; background: radial-gradient(circle, color-mix(in srgb, #FFB86B 55%, transparent), transparent 70%);"></div>
@@ -115,12 +115,12 @@
           Aprende a crear un detalle especial para el amor y amistad, desde cero, con materiales incluidos y un certificado para tu emprendimiento, y te llevas todo para casa el mismo día.
         </p>
 
-        <div style="display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 28px;">
-          <a href="https://wa.me/573107090719?text=Hola%2C%20quiero%20reservar%20mi%20cupo%20para%20el%20Curso%20Bouquet%20de%20Globos%20del%2016%20de%20septiembre" target="_blank" rel="noopener" class="shimmer-cta cta-whatsapp wa-direct-cta" style="display: inline-flex; align-items: center; gap: 10px; background: linear-gradient(100deg, #1fa855, #25D366, #4ee38a, #25D366, #1fa855); color: #06210f; font-weight: 700; font-size: 16px; text-decoration: none; padding: 15px 26px; border-radius: var(--radius-md); cursor: pointer; box-shadow: 0 10px 30px color-mix(in srgb, #25D366 35%, transparent); transition: transform .2s ease, box-shadow .2s ease;">
-            <i class="ph-fill ph-whatsapp-logo" style="font-size: 20px;"></i> Más info
+        <div style="display: flex; flex-wrap: nowrap; gap: 10px; margin-bottom: 28px;">
+          <a href="https://wa.me/573107090719?text=Hola%2C%20quiero%20reservar%20mi%20cupo%20para%20el%20Curso%20Bouquet%20de%20Globos%20del%2016%20de%20septiembre" target="_blank" rel="noopener" class="shimmer-cta cta-whatsapp wa-direct-cta" style="display: flex; align-items: center; justify-content: center; gap: 8px; flex: 1; min-width: 0; background: linear-gradient(100deg, #1fa855, #25D366, #4ee38a, #25D366, #1fa855); color: #06210f; font-weight: 700; font-size: clamp(13px,3.2vw,16px); text-decoration: none; padding: clamp(12px,3vw,15px) clamp(10px,2.5vw,26px); border-radius: var(--radius-md); cursor: pointer; box-shadow: 0 10px 30px color-mix(in srgb, #25D366 35%, transparent); transition: transform .2s ease, box-shadow .2s ease; white-space: nowrap;">
+            <i class="ph-fill ph-whatsapp-logo" style="font-size: clamp(16px,4vw,20px); flex-shrink: 0;"></i> Más info
           </a>
-          <a href="https://chat.whatsapp.com/KBZyOYKKGBK3shHJJ5FZsB" target="_blank" rel="noopener" class="wa-direct-cta" style="display: inline-flex; align-items: center; gap: 10px; background: var(--color-surface); border: 1px solid var(--color-divider); color: var(--color-text); font-weight: 700; font-size: 16px; text-decoration: none; padding: 15px 26px; border-radius: var(--radius-md); cursor: pointer;">
-            <i class="ph-fill ph-users-three" style="font-size: 20px; color: var(--color-accent-300);"></i> Unirme al grupo
+          <a href="https://chat.whatsapp.com/KBZyOYKKGBK3shHJJ5FZsB" target="_blank" rel="noopener" class="wa-direct-cta" style="display: flex; align-items: center; justify-content: center; gap: 8px; flex: 1; min-width: 0; background: var(--color-surface); border: 1px solid var(--color-divider); color: var(--color-text); font-weight: 700; font-size: clamp(13px,3.2vw,16px); text-decoration: none; padding: clamp(12px,3vw,15px) clamp(10px,2.5vw,26px); border-radius: var(--radius-md); cursor: pointer; white-space: nowrap;">
+            <i class="ph-fill ph-users-three" style="font-size: clamp(16px,4vw,20px); color: var(--color-accent-300); flex-shrink: 0;"></i> Unirme grupo
           </a>
         </div>
 
@@ -128,17 +128,17 @@
         <p style="font-size: 13px; color: var(--color-neutral-500); margin: 10px 0 0;">Faltan para el inicio del curso · 16 sep · 2:30 p.m.</p>
       </div>
 
-      <div class="hero-image" style="position: relative;">
+      <div class="hero-image" style="position: relative; max-width: 300px; width: 100%; margin: 0 auto;">
         <div style="position: absolute; inset: -30px; background: radial-gradient(circle, color-mix(in srgb, var(--color-accent) 35%, transparent), transparent 65%); filter: blur(10px); animation: bg-pulse 4s ease-in-out infinite;"></div>
         <div style="position: relative; background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); padding: 10px; box-shadow: var(--shadow-lg); animation: float-y 6s ease-in-out infinite;">
-          <a href="https://youtube.com/shorts/sF4qSfrfNOU?si=zBb4pTsIFGd4ViIb" target="_blank" rel="noopener" style="position: relative; width: 100%; aspect-ratio: 9/16; border-radius: var(--radius-md); overflow: hidden; display: block;">
-            <img src="https://img.youtube.com/vi/sF4qSfrfNOU/hqdefault.jpg" alt="Video: cómo queda el bouquet de globos terminado" style="width: 100%; height: 100%; object-fit: cover; display: block;">
-            <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;">
-              <span style="width: 64px; height: 64px; border-radius: 50%; background: color-mix(in srgb, black 45%, transparent); backdrop-filter: blur(2px); display: flex; align-items: center; justify-content: center; border: 2px solid #fff;">
-                <i class="ph-fill ph-play" style="font-size: 26px; color: #fff; margin-left: 3px;"></i>
+          <div style="position: relative; width: 100%; aspect-ratio: 4/5; border-radius: var(--radius-md); overflow: hidden; background: #000; display: flex; align-items: center; justify-content: center;">
+            <img src="https://img.youtube.com/vi/sF4qSfrfNOU/hqdefault.jpg" alt="Cómo armar tu bouquet de Amor y Amistad" style="width: 100%; height: 100%; object-fit: contain; display: block;">
+            <span style="position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;">
+              <span style="width: 52px; height: 52px; border-radius: 50%; background: color-mix(in srgb, black 45%, transparent); backdrop-filter: blur(2px); display: flex; align-items: center; justify-content: center; border: 2px solid #fff;">
+                <i class="ph-fill ph-play" style="font-size: 20px; color: #fff; margin-left: 3px;"></i>
               </span>
             </span>
-          </a>
+          </div>
         </div>
       </div>
     </div>
