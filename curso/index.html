@@ -90,6 +90,7 @@
   .confetti-dot { position: absolute; width: 7px; height: 7px; border-radius: 50%; animation: confetti-fall 1.6s ease-out forwards; }
   .cta-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 14px 34px color-mix(in srgb, #25D366 45%, transparent); }
   .input:focus-visible { border-color: var(--color-accent); outline: none; }
+  #share-menu a:hover, #share-menu button:hover { background: color-mix(in srgb, var(--color-text) 8%, transparent); }
   @media (max-width: 680px) {
     .hero-grid { grid-template-columns: 1fr !important; }
     .hero-image { max-width: 220px; margin-top: 20px; }
@@ -121,9 +122,25 @@
 
     <div class="hero-grid" style="display: grid; grid-template-columns: minmax(0,1.05fr) minmax(220px,0.85fr); gap: clamp(18px,3vw,32px); align-items: center; position: relative;">
       <div>
-        <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-accent-300); background: color-mix(in srgb, var(--color-accent) 16%, transparent); border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent); padding: 5px 12px; border-radius: 999px; margin-bottom: 12px;">
-          <i class="ph-fill ph-sparkle om-sparkle" style="color: #FF6F91;"></i> Especial Amor y Amistad
-        </span>
+        <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 12px; position: relative;">
+          <span style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-accent-300); background: color-mix(in srgb, var(--color-accent) 16%, transparent); border: 1px solid color-mix(in srgb, var(--color-accent) 40%, transparent); padding: 5px 12px; border-radius: 999px;">
+            <i class="ph-fill ph-sparkle om-sparkle" style="color: #FF6F91;"></i> Especial Amor y Amistad
+          </span>
+          <button id="share-btn" type="button" style="display: inline-flex; align-items: center; gap: 8px; font-size: 12px; letter-spacing: .07em; text-transform: uppercase; color: var(--color-neutral-200); background: color-mix(in srgb, #22d3ee 14%, transparent); border: 1px solid color-mix(in srgb, #22d3ee 45%, transparent); padding: 5px 12px; border-radius: 999px; cursor: pointer; font-family: inherit; font-weight: 500;">
+            <i class="ph-fill ph-share-network" style="color: #22d3ee;"></i> Compartir info
+          </button>
+          <div id="share-menu" style="display: none; position: absolute; top: calc(100% + 8px); left: 0; z-index: 40; background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-md); box-shadow: var(--shadow-lg); padding: 8px; min-width: 210px; flex-direction: column; gap: 2px;">
+            <a href="#" id="share-whatsapp" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 6px; color: var(--color-text); text-decoration: none; font-size: 13.5px; font-weight: 500;">
+              <i class="ph-fill ph-whatsapp-logo" style="font-size: 17px; color: #25D366;"></i> WhatsApp
+            </a>
+            <a href="#" id="share-facebook" target="_blank" rel="noopener" style="display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 6px; color: var(--color-text); text-decoration: none; font-size: 13.5px; font-weight: 500;">
+              <i class="ph-fill ph-facebook-logo" style="font-size: 17px; color: #1877F2;"></i> Facebook
+            </a>
+            <button id="share-copy" type="button" style="display: flex; align-items: center; gap: 10px; padding: 9px 10px; border-radius: 6px; color: var(--color-text); background: none; border: none; text-align: left; cursor: pointer; font-family: inherit; font-size: 13.5px; font-weight: 500;">
+              <i class="ph-fill ph-link-simple" style="font-size: 17px; color: var(--color-accent-300);"></i> Copiar enlace
+            </button>
+          </div>
+        </div>
         <h1 style="font-size: clamp(22px,3.6vw,36px); line-height: 1.1; letter-spacing: -0.015em; margin: 0 0 10px; font-weight: 600;">
           16 sep curso decoración con globos en Yumbo.
         </h1>
@@ -497,6 +514,66 @@
     });
   }
   renderFaq();
+
+  // Compartir info: en móvil usa el share nativo, en PC despliega opciones
+  (function () {
+    var shareBtn = document.getElementById('share-btn');
+    var shareMenu = document.getElementById('share-menu');
+    var shareUrl = 'https://megafiestas.yumbo.online/curso/';
+    var shareTitle = 'Curso Bouquet de Globos · Mega Fiestas Yumbo';
+    var shareText = 'Aprende a crear un bouquet de globos desde cero, 16 de septiembre en Mega Fiestas Yumbo 🎈';
+
+    document.getElementById('share-whatsapp').href = 'https://wa.me/?text=' + encodeURIComponent(shareText + ' ' + shareUrl);
+    document.getElementById('share-facebook').href = 'https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(shareUrl);
+
+    function copyShareUrl() {
+      return new Promise(function (resolve, reject) {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(shareUrl).then(resolve, function () { fallbackCopy(resolve, reject); });
+        } else {
+          fallbackCopy(resolve, reject);
+        }
+      });
+    }
+    function fallbackCopy(resolve, reject) {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = shareUrl;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        resolve();
+      } catch (err) { reject(err); }
+    }
+
+    document.getElementById('share-copy').addEventListener('click', function () {
+      var btn = document.getElementById('share-copy');
+      copyShareUrl().then(function () {
+        var original = btn.innerHTML;
+        btn.innerHTML = '<i class="ph-fill ph-check-circle" style="font-size: 17px; color: #25D366;"></i> ¡Enlace copiado!';
+        setTimeout(function () { btn.innerHTML = original; }, 1800);
+      }).catch(function () {});
+      shareMenu.style.display = 'none';
+    });
+
+    shareBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      if (navigator.share) {
+        navigator.share({ title: shareTitle, text: shareText, url: shareUrl }).catch(function () {});
+      } else {
+        shareMenu.style.display = shareMenu.style.display === 'flex' ? 'none' : 'flex';
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (shareMenu.style.display === 'flex' && !shareMenu.contains(e.target) && e.target !== shareBtn) {
+        shareMenu.style.display = 'none';
+      }
+    });
+  })();
 
   // Terms modal
   var termsModal = document.getElementById('terms-modal');
