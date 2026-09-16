@@ -453,6 +453,10 @@
     masContenido.style.display = '';
   }, 40000);
 
+  // Al terminar el video, vuelve a mostrar el flyer (poster) en vez de quedar en negro.
+  var heroVideo = document.querySelector('.hero-image video');
+  if (heroVideo) heroVideo.addEventListener('ended', function () { heroVideo.load(); });
+
   // Countdown
   var countdownEl = document.getElementById('countdown');
   function pad(n) { return String(n).padStart(2, '0'); }
