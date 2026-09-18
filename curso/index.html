@@ -432,7 +432,7 @@
     <div style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-lg); max-width: 420px; width: 100%; padding: clamp(24px,4vw,32px); box-shadow: var(--shadow-lg); text-align: center; position: relative;">
       <button id="close-cupos" style="position: absolute; top: 14px; right: 14px; background: none; border: none; cursor: pointer; color: var(--color-neutral-400); font-size: 22px; line-height: 1;">×</button>
       <i class="ph-fill ph-timer" style="font-size: 32px; color: var(--color-accent-300);"></i>
-      <h3 style="margin: 14px 0 10px; font-size: 22px; font-weight: 600;">Solo 14 cupos disponibles</h3>
+      <h3 style="margin: 14px 0 10px; font-size: 22px; font-weight: 600; color: #FF6F91;">Quedan 04 cupos</h3>
       <p style="margin: 0 0 22px; font-size: 14.5px; line-height: 1.6; color: var(--color-neutral-300);">Recuerda que puedes separar tu cupo con el 50% y el resto lo completas el día del curso.</p>
       <a href="https://wa.me/573107090719?text=Hola%2C%20quiero%20reservar%20mi%20cupo%20para%20el%20Curso%20Bouquet%20de%20Globos%20del%2018%20de%20septiembre" target="_blank" rel="noopener" id="cupos-cta" class="wa-direct-cta" style="display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: #25D366; color: #06210f; font-weight: 700; font-size: 15.5px; text-decoration: none; padding: 14px 22px; border-radius: var(--radius-md); cursor: pointer; width: 100%;">
         <i class="ph-fill ph-whatsapp-logo" style="font-size: 18px;"></i> Escribir por WhatsApp ya
@@ -474,7 +474,7 @@
     ];
     countdownEl.innerHTML = units.map(function (u) {
       return '<div class="lift-hover" style="background: var(--color-surface); border: 1px solid var(--color-divider); border-radius: var(--radius-md); padding: 7px 4px; text-align: center;">' +
-        '<div class="pulse-num" style="font-size: clamp(15px,2.2vw,20px); font-weight: 700; font-feature-settings: \'tnum\' 1; color: var(--color-accent-300); line-height: 1;">' + u.value + '</div>' +
+        '<div class="pulse-num" style="font-size: clamp(15px,2.2vw,20px); font-weight: 700; font-feature-settings: \'tnum\' 1; color: #ff3b3b; line-height: 1;">' + u.value + '</div>' +
         '<div style="font-size: 8.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--color-neutral-500); margin-top: 3px;">' + u.label + '</div>' +
         '</div>';
     }).join('');
