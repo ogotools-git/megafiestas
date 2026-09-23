@@ -175,56 +175,125 @@
                 Encuentra artículos para el hogar, celebraciones, juguetes, ferretería, escolares y mucho más.
             </p>
 
-            <!-- DOS TARJETAS CLICABLES -->
+            <!-- NUEVE TARJETAS: 7 disparan el chat, 2 (Rimax y Curso) llevan a su página real -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 lg:gap-6 max-w-6xl mx-auto">
 
-                <!-- TARJETA 1 — NUEVO CATÁLOGO RIMAX (Toda clicable) -->
-                <a href="catalogo-rimax/" rel="noopener noreferrer" aria-label="Abrir Nuevo Catálogo RIMAX"
-                   class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-between text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
-                    <div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Nuevo Catálogo RIMAX</h3>
-                        <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
-                            <img src="nuevocatalogorimax.webp" alt="Nuevo Catálogo RIMAX" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <p class="text-gray-600 text-sm sm:text-base mb-6 lg:mb-4 text-center">Un libro 3D interactivo.</p>
+                <!-- TARJETA 1 — TEMPORADA HALLOWEEN (abre el chat) -->
+                <div role="button" tabindex="0"
+                     onclick="abrirChatSeccion('Con gusto te puedo atender las consultas de temporada Halloween. ¿En qué artículo estás interesado en tener más detalles?')"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
+                     aria-label="Consultar temporada Halloween por chat"
+                     class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-center text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Temporada Halloween</h3>
+                    <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
+                        <img src="todoenunmismolugar.webp" alt="Temporada Halloween" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="w-full bg-megaBlue-500 group-hover:bg-megaBlue-600 text-white font-bold py-3 lg:py-2.5 px-4 rounded-xl text-center text-sm sm:text-base transition-colors flex items-center justify-center gap-2 shadow-sm">
-                        <span>Conoce el Catálogo RIMAX</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                    </div>
-                </a>
+                    <p class="text-gray-600 text-sm sm:text-base text-center">Sustos y sorpresas</p>
+                </div>
 
-                <!-- TARJETA 2 — CURSO DECORACIÓN CON GLOBOS (Toda clicable) -->
-                <a href="https://megafiestas.yumbo.online/curso" rel="noopener noreferrer" aria-label="Aqui toda la informacion del Curso Bouquet de globos"
-                   class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-between text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
-                    <div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Curso Bouquet de globos</h3>
-                        <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
-                            <img src="cursoglobos.webp" alt="Curso Bouquet de globos" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <p class="text-gray-600 text-sm sm:text-base mb-6 lg:mb-4 text-center">Aprende y emprende</p>
+                <!-- TARJETA 2 — TEMPORADA NAVIDAD (abre el chat) -->
+                <div role="button" tabindex="0"
+                     onclick="abrirChatSeccion('Con gusto te puedo atender las consultas de temporada Navidad. ¿En qué artículo estás interesado en tener más detalles?')"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
+                     aria-label="Consultar temporada Navidad por chat"
+                     class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-center text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Temporada Navidad</h3>
+                    <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
+                        <img src="todoenunmismolugar.webp" alt="Temporada Navidad" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="w-full bg-megaBlue-500 group-hover:bg-megaBlue-600 text-white font-bold py-3 lg:py-2.5 px-4 rounded-xl text-center text-sm sm:text-base transition-colors flex items-center justify-center gap-2 shadow-sm">
-                        <span>Aqui toda la informacion</span>
-                        <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                    </div>
-                </a>
+                    <p class="text-gray-600 text-sm sm:text-base text-center">Magia y luces</p>
+                </div>
 
-                <!-- TARJETA 3 — TODO EN UN MISMO LUGAR (Toda clicable) -->
-                <a href="https://wa.me/573107090719?text=Hola%2C%20vi%20el%20cat%C3%A1logo%20Rimax%20en%20mega%20fun%20y%20quiero%20informaci%C3%B3n%20sobre%20un%20producto." target="_blank" rel="noopener noreferrer" aria-label="Hablar por WhatsApp con Mega Fiestas Yumbo"
-                   class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-between text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
-                    <div>
-                        <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Todo en un mismo lugar</h3>
-                        <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
-                            <img src="todoenunmismolugar.webp" alt="Todo en un mismo lugar" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <p class="text-gray-600 text-sm sm:text-base mb-6 lg:mb-4 text-center">Estamos para ayudarte.</p>
+                <!-- TARJETA 3 — SECCIÓN JUGUETERÍA (abre el chat) -->
+                <div role="button" tabindex="0"
+                     onclick="abrirChatSeccion('Con gusto te puedo atender las consultas de la sección Juguetería. ¿En qué artículo estás interesado en tener más detalles?')"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
+                     aria-label="Consultar sección Juguetería por chat"
+                     class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-center text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Sección Juguetería</h3>
+                    <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
+                        <img src="todoenunmismolugar.webp" alt="Sección Juguetería" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <div class="w-full bg-whatsapp-500 group-hover:bg-whatsapp-600 text-white font-bold py-3 lg:py-2.5 px-4 rounded-xl text-center text-sm sm:text-base transition-colors flex items-center justify-center gap-2 shadow-sm">
-                        <i class="fa-brands fa-whatsapp text-lg"></i>
-                        <span>Hablar por WhatsApp</span>
+                    <p class="text-gray-600 text-sm sm:text-base text-center">Diversión sin límites</p>
+                </div>
+
+                <!-- TARJETA 4 — SECCIÓN PAPELERÍA (abre el chat) -->
+                <div role="button" tabindex="0"
+                     onclick="abrirChatSeccion('Con gusto te puedo atender las consultas de la sección Papelería. ¿En qué artículo estás interesado en tener más detalles?')"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
+                     aria-label="Consultar sección Papelería por chat"
+                     class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-center text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Sección Papelería</h3>
+                    <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
+                        <img src="todoenunmismolugar.webp" alt="Sección Papelería" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                     </div>
-                </a>
+                    <p class="text-gray-600 text-sm sm:text-base text-center">Todo para clases</p>
+                </div>
+
+                <!-- TARJETA 5 — SECCIÓN FERRETERÍA (abre el chat) -->
+                <div role="button" tabindex="0"
+                     onclick="abrirChatSeccion('Con gusto te puedo atender las consultas de la sección Ferretería. ¿En qué artículo estás interesado en tener más detalles?')"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
+                     aria-label="Consultar sección Ferretería por chat"
+                     class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-center text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Sección Ferretería</h3>
+                    <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
+                        <img src="todoenunmismolugar.webp" alt="Sección Ferretería" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <p class="text-gray-600 text-sm sm:text-base text-center">Manos a la obra</p>
+                </div>
+
+                <!-- TARJETA 6 — SECCIÓN PIÑATERÍA (abre el chat) -->
+                <div role="button" tabindex="0"
+                     onclick="abrirChatSeccion('Con gusto te puedo atender las consultas de la sección Piñatería. ¿En qué artículo estás interesado en tener más detalles?')"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
+                     aria-label="Consultar sección Piñatería por chat"
+                     class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-center text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Sección Piñatería</h3>
+                    <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
+                        <img src="todoenunmismolugar.webp" alt="Sección Piñatería" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <p class="text-gray-600 text-sm sm:text-base text-center">Fiesta asegurada</p>
+                </div>
+
+                <!-- TARJETA 7 — SECCIÓN HOGAR (abre el chat) -->
+                <div role="button" tabindex="0"
+                     onclick="abrirChatSeccion('Con gusto te puedo atender las consultas de la sección Hogar. ¿En qué artículo estás interesado en tener más detalles?')"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
+                     aria-label="Consultar sección Hogar por chat"
+                     class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-center text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Sección Hogar</h3>
+                    <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
+                        <img src="todoenunmismolugar.webp" alt="Sección Hogar" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <p class="text-gray-600 text-sm sm:text-base text-center">Tu casa ideal</p>
+                </div>
+
+                <!-- TARJETA 8 — SECCIÓN RIMAX (abre el chat) -->
+                <div role="button" tabindex="0"
+                     onclick="abrirChatSeccion('Con gusto te puedo atender las consultas de la sección Rimax. ¿En qué artículo estás interesado en tener más detalles?')"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
+                     aria-label="Consultar sección Rimax por chat"
+                     class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-center text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Sección Rimax</h3>
+                    <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
+                        <img src="nuevocatalogorimax.webp" alt="Sección Rimax" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <p class="text-gray-600 text-sm sm:text-base text-center">Un libro 3D interactivo.</p>
+                </div>
+
+                <!-- TARJETA 9 — CURSO BOUQUET GLOBOS (abre el chat) -->
+                <div role="button" tabindex="0"
+                     onclick="abrirChatSeccion('Con gusto te puedo atender las consultas del Curso Bouquet Globos. ¿En qué artículo estás interesado en tener más detalles?')"
+                     onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();this.click();}"
+                     aria-label="Consultar Curso Bouquet Globos por chat"
+                     class="bg-white rounded-2xl p-6 lg:p-5 shadow-xl flex flex-col justify-center text-left border border-white/20 hover:shadow-2xl hover:-translate-y-1 transition-all group cursor-pointer">
+                    <h3 class="text-lg sm:text-xl font-bold text-gray-900 mb-4 lg:mb-3 text-center">Curso Bouquet Globos</h3>
+                    <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
+                        <img src="cursoglobos.webp" alt="Curso Bouquet Globos" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
+                    </div>
+                    <p class="text-gray-600 text-sm sm:text-base text-center">Aprende y emprende</p>
+                </div>
 
             </div>
         </div>
@@ -291,5 +360,36 @@
     <script src="https://forja-crm-b0fe68.pinateriamegafiestas.workers.dev/widget.js"
             data-color="#06B6D4"
             data-saludo="¡Hola! ¿Buscas algo en especial? Papelería, piñatería, juguetes, ferretería, hogar o Rimax — dime y te ayudo."></script>
+    <script>
+        // Abre el chat de Forja y envía un mensaje precargado según la tarjeta tocada.
+        // NOTA: engancha elementos internos del widget (Shadow DOM abierto en
+        // [data-forja-widget]) porque el widget no expone una API pública para
+        // esto. Si Forja actualiza sus clases internas (.burbuja/.panel/.enviar),
+        // esta función puede dejar de funcionar y habrá que revisarla.
+        function abrirChatSeccion(mensaje, reintentos) {
+            if (reintentos === undefined) reintentos = 20;
+            var host = document.querySelector('[data-forja-widget]');
+            var root = host && host.shadowRoot;
+            var burbuja = root && root.querySelector('.burbuja');
+            var panel = root && root.querySelector('.panel');
+            var ta = root && root.querySelector('textarea');
+            var btnEnviar = root && root.querySelector('.enviar');
+
+            if (!panel || !ta || !btnEnviar) {
+                if (reintentos > 0) {
+                    setTimeout(function () { abrirChatSeccion(mensaje, reintentos - 1); }, 150);
+                }
+                return;
+            }
+
+            if (!panel.classList.contains('abierto') && burbuja) burbuja.click();
+
+            setTimeout(function () {
+                ta.value = mensaje;
+                ta.dispatchEvent(new Event('input', { bubbles: true }));
+                btnEnviar.click();
+            }, 150);
+        }
+    </script>
 </body>
 </html>
