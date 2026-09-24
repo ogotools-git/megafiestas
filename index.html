@@ -399,5 +399,50 @@
             }, 150);
         }
     </script>
+    <script>
+        // En móvil, el botón "atrás" del navegador sacaba de la página en vez de
+        // cerrar el chat de Forja (el widget no le agrega una entrada al
+        // historial al abrirse). Esto agrega esa entrada al abrir el chat —
+        // así el primer "atrás" solo cierra el chat, no navega fuera del sitio.
+        // NOTA: depende de las clases internas del widget (.panel .abierto,
+        // .cerrar) por la misma razón que abrirChatSeccion() — si Forja
+        // actualiza esas clases, revisar esto también.
+        (function () {
+            var chatHistoryPushed = false;
+            var cerrarBtn = null;
+
+            function onPanelChange(panel) {
+                var isOpen = panel.classList.contains('abierto');
+                if (isOpen && !chatHistoryPushed) {
+                    history.pushState({ forjaChatOpen: true }, '', location.href);
+                    chatHistoryPushed = true;
+                } else if (!isOpen && chatHistoryPushed) {
+                    chatHistoryPushed = false;
+                    history.back();
+                }
+            }
+
+            window.addEventListener('popstate', function () {
+                if (chatHistoryPushed) {
+                    chatHistoryPushed = false;
+                    if (cerrarBtn) cerrarBtn.click();
+                }
+            });
+
+            function intentar(reintentos) {
+                var host = document.querySelector('[data-forja-widget]');
+                var root = host && host.shadowRoot;
+                var panel = root && root.querySelector('.panel');
+                if (!panel) {
+                    if (reintentos > 0) setTimeout(function () { intentar(reintentos - 1); }, 150);
+                    return;
+                }
+                cerrarBtn = root.querySelector('.cerrar');
+                new MutationObserver(function () { onPanelChange(panel); })
+                    .observe(panel, { attributes: true, attributeFilter: ['class'] });
+            }
+            intentar(20);
+        })();
+    </script>
 </body>
 </html>
