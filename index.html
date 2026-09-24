@@ -13,6 +13,12 @@
     <link rel="icon" href="favicon.ico">
 
     <!-- OPEN GRAPH / COMPARTIR EN REDES -->
+    <!-- IMPORTANTE: og:image, og:image:secure_url, twitter:image y el "image"/"logo"
+         del JSON-LD de abajo SIEMPRE deben ser URL absolutas (https://megafiestas.yumbo.online/...),
+         nunca rutas relativas (/archivo.jpg). Con ruta relativa, WhatsApp/iMessage/Slack
+         no logran resolver la imagen y muestran un ícono genérico de enlace en vez de la
+         vista previa real. Si se cambia la foto de portada, actualizar el nombre de archivo
+         aquí y en el JSON-LD a la vez, y mantener siempre el dominio completo. -->
     <meta property="og:type" content="website">
     <meta property="og:locale" content="es_CO">
     <meta property="og:site_name" content="Mega Fiestas Yumbo">
@@ -292,7 +298,7 @@
                     <div class="rounded-xl overflow-hidden bg-gray-100 mb-4 lg:mb-3 h-64 sm:h-72 lg:h-[232px] flex items-center justify-center border border-gray-100 p-2">
                         <img src="cursoglobos.webp" alt="Curso Bouquet Globos" class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300">
                     </div>
-                    <p class="text-gray-600 text-sm sm:text-base text-center">Aprende y emprende</p>
+                    <p class="text-gray-600 text-sm sm:text-base text-center">Este evento finalizó</p>
                 </div>
 
             </div>
