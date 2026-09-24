@@ -338,6 +338,20 @@
         </div>
     </footer>
 
+    <!-- POP-UP DE RETENCIÓN (exit intent) — aparece máximo 1 vez por sesión,
+         al intentar salir del sitio, ofreciendo WhatsApp en vez de irse. -->
+    <div id="popupSalida" class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/60 p-4">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-sm w-full p-6 relative text-center">
+            <button type="button" id="cerrarPopupSalida" aria-label="Cerrar" class="absolute top-3 right-3 text-gray-400 hover:text-gray-600 text-2xl leading-none">&times;</button>
+            <h3 class="text-xl font-extrabold text-gray-900 mb-2">Mega Fiestas: todo lo que buscas, en un mismo lugar</h3>
+            <p class="text-gray-600 text-sm mb-5">Estamos para ayudarte.</p>
+            <a href="https://wa.me/573107090719?text=hola%20megafiestas%2C%20vengo%20del%20sitio%20web%20y%20quiero%20mas%20informacion" target="_blank" rel="noopener noreferrer" class="w-full bg-whatsapp-500 hover:bg-whatsapp-600 text-white font-bold py-3 px-4 rounded-xl inline-flex items-center justify-center gap-2 transition-colors">
+                <i class="fa-brands fa-whatsapp text-lg"></i>
+                <span>Hablar por WhatsApp</span>
+            </a>
+        </div>
+    </div>
+
     <script>
         async function compartirSitio() {
             if (navigator.share) {
@@ -442,6 +456,65 @@
                     .observe(panel, { attributes: true, attributeFilter: ['class'] });
             }
             intentar(20);
+        })();
+    </script>
+    <script>
+        // Pop-up de retención (exit intent): máximo 1 vez por sesión de
+        // pestaña (sessionStorage). En escritorio se dispara cuando el mouse
+        // sale por el borde superior de la ventana (intento de cerrar/cambiar
+        // de pestaña). En móvil no hay mouse, así que se dispara con el primer
+        // botón "atrás" del navegador (mismo mecanismo de history.pushState
+        // que usa el chat más arriba) — nunca bloquea de verdad: si la persona
+        // insiste (cierra el pop-up o le da "atrás" de nuevo), sale normal.
+        (function () {
+            var KEY = 'mf_exit_popup_shown';
+            var shown = false;
+            try { shown = sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+
+            var overlay = document.getElementById('popupSalida');
+            var cerrarBtn = document.getElementById('cerrarPopupSalida');
+            if (!overlay || !cerrarBtn) return;
+
+            function chatAbierto() {
+                var host = document.querySelector('[data-forja-widget]');
+                var root = host && host.shadowRoot;
+                var panel = root && root.querySelector('.panel');
+                return !!(panel && panel.classList.contains('abierto'));
+            }
+
+            function mostrarPopup() {
+                if (shown || chatAbierto()) return;
+                shown = true;
+                try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+                overlay.classList.remove('hidden');
+                overlay.classList.add('flex');
+            }
+            function ocultarPopup() {
+                overlay.classList.add('hidden');
+                overlay.classList.remove('flex');
+            }
+            cerrarBtn.addEventListener('click', ocultarPopup);
+            overlay.addEventListener('click', function (e) {
+                if (e.target === overlay) ocultarPopup();
+            });
+
+            // Escritorio: mouse saliendo por el borde superior de la ventana.
+            document.addEventListener('mouseout', function (e) {
+                if (!shown && e.clientY <= 0 && !e.relatedTarget) mostrarPopup();
+            });
+
+            // Móvil: primer "atrás" muestra el pop-up en vez de salir del sitio.
+            var exitGuardPushed = false;
+            if (!shown) {
+                history.pushState({ mfExitGuard: true }, '', location.href);
+                exitGuardPushed = true;
+            }
+            window.addEventListener('popstate', function () {
+                if (exitGuardPushed && !shown) {
+                    exitGuardPushed = false;
+                    mostrarPopup();
+                }
+            });
         })();
     </script>
 </body>
